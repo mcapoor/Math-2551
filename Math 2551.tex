@@ -1,0 +1,528 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{article} 
+\usepackage[utf8]{inputenc} 
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{letterpaper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+\usepackage{parskip}
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+%%% END Article customizations
+
+\newcommand{\R}{\mathbb{R}}
+\pagenumbering{arabic}
+
+\graphicspath{{./images/}}
+
+\title{Georgia Tech Math 2551}
+\author{Milan Capoor}
+\date{Spring 2021} 
+
+\begin{document}
+\maketitle
+\section{Module 1: Three Dimensional Space, Vectors, Lines, Planes}
+\subsection{WEEK 1: Geometry of space and vectors (Readings 12.1-12.4)}
+\emph{The three dimensional coordinate system:} $\R^3$, a coordinate system with x, y, and z axes where coordinates are represented by an ordered tuple of three numbers. We use a right-hand system such that z is vertical. 
+
+\emph{Octants:} the three-dimensional analogue of quadrants
+
+\emph{First octant:} the octant where all three coordinates are positive
+
+The three planes:
+\begin{itemize}
+    \item xy-plane: $z = 0$ ("the floor")
+    \item xz-plane: $y = 0$ ("a wall")
+    \item yz-plane: $x = 0$
+\end{itemize}
+
+Distance in three dimensions:
+$$d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$$
+
+Example:
+"Find the distance from the point (2, -3, 1) to the plane $y = 2$."
+
+Solution:
+The plane $y = 2$ spans all values of x and z so the only coordinate changing is y itself. $d = 2 - (-3) = 5 \blacksquare$
+
+\emph{Sphere:} a three-dimensional object where every point on its surface is equidistant from its centre. The centre has coordinates $x_0, y_0, z_0$ and the distance from the centre to each point on the surface is the radius.
+$$(x - x_0)^2 + (y-y_0)^2 + (z-z_0)^2 = a^2$$
+
+Example:
+"Identify the centre C and radius a for the sphere given by $2x^2 + 2y^2 + 2x^2 - 8x + 12y - 20z  = 22$
+
+Solution:
+\begin{align*}
+    2x^2 + 2y^2 + 2z^2 - 8x + 12y - 20z  &= 22\\
+    x^2 + y^2 + z^2 - 4x + 6y - 10z  &= 11\\
+    x^2 - 4x + y^2 + 6y + z^2 - 10z &= 11\\
+    (x - 2)^2 + (y + 3)^2 + (z - 5)^2 &= 11 + 4 + 9 + 25\\
+    (x - 2)^2 + (y + 3)^2 + (z - 5)^2 &= 49
+\end{align*}
+$$C = (2, -3, 5) \quad a = 7$$
+
+Example:
+"Give a geometric description of the sets defined by $y^2 + z^2 = 4, x = 2$"
+
+Solution:
+A circle of radius 2 on the plane $x = 2$
+
+\emph{Vector:} an object with a direction and a length, represented by a directed line segment
+
+If point P has coordinates $(x_1, y_1, z_1)$ and point Q has coordinates $(x_2, y_2, z_2)$, then 
+$$\vec{PQ} = \langle x_2 - x_1, y_2 - y_1, z_2 - z_1 \rangle$$
+
+\emph{Magnitude of a vector:} the length or norm of a vector, found using the distance formula. Written $||\vec{v}||$
+
+Vectors can be represented by arrow notation ($\vec{PQ}$), component notation ($\langle x, y, z\rangle$), or bold typeface notation ($\mathbf{v}$)
+
+Example:
+"Find the component form and length of the vector whose intial point is $R(-1, 3, 0)$ and terminal point is $S(-3, -2, 4)$"
+
+Solution:
+\begin{align*}
+    \vec{RS} &= \langle -2, -5, 4\rangle\\
+    ||\vec{RS}|| &= \sqrt{45} = 3\sqrt{5}
+\end{align*}
+
+Vector Addition:
+Given $\vec{u} = \langle u_1, u_2, u_3\rangle$ and $\vec{v} = \langle v_1, v_2, v_3\rangle$,
+$$\vec{u} + \vec{v} = \langle u_1 + v_1, u_2 + v_2, u_3 + v_3\rangle$$
+
+Vector multiplication by a scalar:
+Given $\vec{u} = \langle u_1, u_2, u_3\rangle$, 
+$$k\vec{u} = \langle ku_1, ku_2, ku_3\rangle$$
+
+All the normal properties (commutivity, associativity, additive identity, additive inverse, multiplicative identity, zero multiplication, and distributivity) hold for vectors.
+
+Geometric representation of vector addition:
+For a vector $\vec{u}$, 
+\begin{itemize}
+    \item $-\vec{u}$ is a vector of the same magnitude in the opposite direction
+    \item $k\vec{u}$ is a vector in the same direction but k times the length
+\end{itemize}
+
+Addition of vectors $\vec{v}$ and $\vec{w}$ corresponds to the diagonal of their composite parallelogram starting at the common point. For subtraction, the diagonal begins at the tip of the vector being subtracted. 
+
+\emph{Unit vector:} a vector whose length is 1. For a non-zero vector, $\hat{v} = \frac{\vec{v}}{||v||}$
+
+The standard unit vectors:
+\begin{itemize}
+    \item $\hat{i} = \langle 1, 0, 0\rangle$
+    \item  $\hat{j} = \langle 0, 1, 0\rangle$
+    \item $\hat{k} = \langle 0, 0, 1\rangle$
+\end{itemize}
+
+Any vector can be written as a linear combination of the standard unit vectors
+
+Example:
+"Find a unit vector i the xy=plane that makes an angle $\theta = -\frac{\pi}{3}$ with the positive x-axis"
+
+Solution:
+From the unit circle 
+$$\hat{r} = \frac{1}{2} \hat{i} - \frac{\sqrt{3}}{2} \hat{j}$$
+
+\emph{The Dot Product:} a scalar value 
+$$\vec{u} \cdot \vec{v} = u_1v_1 + ... + u_nv_n = ||\vec{u}||\;||\vec{v}|| \cos\theta$$
+This can give us the angle between two vectors 
+$$\theta = \cos^{-1} (\frac{\vec{u} \cdot \vec{c}}{||\vec{u}||\;||\vec{v}||})$$ 
+
+Vectors are orthogonal if $\vec{v} \cdot \vec{u} = 0$
+
+\emph{Vector projection:}
+$$\text{proj}_b \vec{a} =  (\frac{\vec{a}\cdot\vec{b}}{||\vec{b}||}) \frac{\vec{b}}{||\vec{b}||}$$
+
+\emph{Scalar component of a in the direction of b:} The value $$\text{comp}_b \vec{a} = \frac{\vec{a}\cdot\vec{b}}{||\vec{b}||} = ||\vec{a}|| \cos \theta$$
+
+\emph{Work:} $W = F \cdot D$ for a force F acting through a distance D
+
+\emph{Cross product:} the vector 
+$$\vec{a} \times \vec{b} = ||\vec{a}|| \; ||\vec{b}|| \sin \theta \hat{n}$$
+Where $\theta$ is the angle between the vectors and $\hat{n}$ is the unit vector perpendicular to the plane containing vectors $\vec{a}$ and $\vec{b}$
+
+The product $||\vec{a}|| \; ||\vec{b}|| \sin \theta$ also corresponds to the area of the parallelogram formed by the vectors 
+
+\emph{Parallel vectors:} two vectors are parallel iff $\vec{a} \times \vec{b} = \vec{0}$
+
+Properties of the cross product:
+\begin{itemize}
+    \item $(r \vec{u}) \times (r \vec{v}) = (rs)(\vec{u} \times \vec{v})$
+    \item $\vec{u} \times \vec{v} = - \vec{v} \times \vec{u}$
+    \item $\vec{0} \times \vec{u} = \vec{0}$
+    \item $\vec{u} \times (\vec{v} + \vec{w}) = \vec{u}\times \vec{v} + \vec{u}\times \vec{w}$
+    \item $(\vec{v} + \vec{w}) \times \vec{u} = \vec{v} \times \vec{u} + \vec{w} \times \vec{u}$
+    \item $\vec{u} \times (\vec{v} \times \vec{w}) = (\vec{u}\cdot \vec{w})\vec{v} - (\vec{u} \cdot \vec{v})\vec{w}$
+\end{itemize}
+
+Calculating the Cross Product as a determinant:
+For $\vec{u} = u_1 \hat{i} + u_2 \hat{j} + u_3 \hat{k}$ and $\vec{v} = v_1 \hat{i} + v_2 \hat{j} + v_3 \hat{k}$, then 
+$$\vec{u} \times \vec{v} = \begin{vmatrix}
+    \vec{i} & \vec{j} & \vec{k}\\
+    u_1 & u_2 & u_3\\
+    v_1 & v_2 & v_3
+\end{vmatrix}$$
+
+Example:
+"Find the area of the parallelogram with vertices A(2, 1, 4), B(1, 4, 3), C(1, 0, 2), D(2, -3, 3)"
+
+Solution:
+\begin{align*}
+    \vec{AB} &= \langle -1, 3, -1\rangle\\
+    \vec{BC} &= \langle 0, -4, -1\rangle\\
+    \vec{CD} &= \langle 1, -3, 1\\
+    \vec{AD} &= \langle 0, -4, -1
+\end{align*}
+Because $\vec{AB}$ and $\vec{CD}$ are parallel but in opposite directions, we can know to calculate the cross of any two adjacent sides to find the area. 
+$$A = ||\vec{AB} \times \vec{AD}||$$
+$$\vec{AB} \times \vec{AD} = \begin{vmatrix}
+    \vec{i} & \vec{j} & \vec{k}\\
+    -1 & 3 & -1\\
+    0 & -4 & -1
+\end{vmatrix} = -7\hat{i} + \hat{j} + 4\hat{k}$$
+$$A = ||-7\hat{i} - \hat{j} + 4\hat{k}|| = \sqrt{66} \blacksquare$$
+
+The absolute value of the triple scalar product ($(\vec{u}\times \vec{v}) \cdot \vec{w}$) is the volume of the parallelepiped determined by the three vectors.
+
+Helpfully, 
+$$(\vec{u}\times \vec{v}) \cdot \vec{w} = \begin{vmatrix}
+    u_1 & u_2 & u_3\\
+    v_1 & v_2 & v_3\\
+    w_1 & w_2 & w_3
+\end{vmatrix}$$
+
+
+%%%------------------------------------------------------------------------------------- %%%
+\subsection{WEEK 2: Curves, Tangents, Motion (Readings 12.5-13.2)}
+A vector equation for the line L through the point $P_0 (x_0, y_0, z_0)$ parallel to the vector $\vec{v}$ is given by 
+$$\vec{r}(t) = \vec{r}_0 + t \vec{v}, \quad -\infty < t < \infty$$
+where $\vec{r}$ is the position vector of a point $P(x,y,z)$ on L and $\vec{r}_0$ is the position vector of  $P_0 (x_0, y_0, z_0)$ .
+
+The \emph{standard parameterisation} of the line L through the point $P_0 (x_0, y_0, z_0)$ parallel to $\vec{v} = v_1 \hat{i} + v_2 \hat{j} + v_3 \hat{k}$ is given by 
+\begin{align*}
+    x(t) &= x_0 + tv_1\\
+    y(t) &= y_0 + tv_2\\
+    z(t) &= z_0 + tv_3
+\end{align*}
+for $-\infty < t < \infty$.
+
+Distance from a point to a line in space:
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{projection onto line.png}
+\end{center}
+$$d = \frac{||\vec{PS} \times \vec{v}||}{||\vec{v}||}$$
+
+Example:
+"Find the distance from S(2,0,2) to the line through P(3,-1,1) parallel to the vector $\vec{v} = \hat{i} - 2\hat{j} - 2\hat{k}$"
+
+Solution:
+\begin{align*}
+    d &= \frac{||\vec{PS} \times \vec{v}||}{||\vec{v}||}\\
+    \vec{PS} &= \langle -1,1,1\rangle\\
+    \vec{PS} \times \vec{v} &= \begin{vmatrix}
+        \hat{i} & \hat{j} & \hat{k}\\
+        -1 & 1 & 1\\
+        1 & -2 & -2
+    \end{vmatrix} = -\hat{j} + \hat{k}\\
+    d &= \frac{\sqrt{1 + 1}}{\sqrt{1 + 4 +4}} = \frac{\sqrt{2}}{3} \quad \blacksquare
+\end{align*}
+
+Equations for a plane: 
+The plane through the point $P_0 (x_0, y_0, z_0)$ normal to $\vec{n} = A\hat{i} + B\hat{j} + C \hat{k}$ is given by the \emph{vector equation}
+$$\vec{n} \cdot \vec{P_0 P} = 0$$
+and the \emph{component equation}
+$$A(x - x_0)+B(y-y_0)+C(z-z_0) = 0$$
+
+In other words, the direction of the plane is defined by the vector normal to it. 
+
+Example: 
+"Find an equation for the plane which passes through P(1,3,4) and contains the line $l: x(t) = 3t,\; y(t) = 4t,\; z(t)=2+2t$
+
+Solution: 
+If the plane contains a point and a line distinct from each other, then the cross product of the vector for that point and the equation for the line will be normal to both of them and thus the plane. 
+$$\ell \rightarrow \ell(0, 0, 2)$$
+\begin{center}
+    $\vec{QP} = \langle 1,3,2\rangle$\\
+    $\vec{d} = \langle 3,4,2\rangle$\\
+\end{center}
+\begin{center}
+    $\vec{n} = \vec{QP} \times \vec{d} = -2\hat{i} + 4\hat{j}-5\hat{k}$\\
+    $-2(x-1)+4(y-3)-5(z-4) = 0$\\
+\end{center}
+$$2x -4y - 5z = 10$$
+
+\emph{Angle between two planes:} the acute angle between their normal vectors
+$$\cos \theta = \frac{|\vec{n}_1 \cdot \vec{n}_2|}{||\vec{n}_1|| \; ||\vec{n}_2||}$$
+
+Distance from a point to a plane:
+$$d = \begin{vmatrix}
+    \vec{PS} \cdot \frac{\vec{n}}{||\vec{n}||}
+\end{vmatrix}$$
+
+Example: 
+"Determine whether the lines $l_1$ and $l_2$ are parallel, coincident, skew, or intersecting."
+$$l_1: x_1(t) = 1 + t, \; y_1(t) = -1 - t, \; z_1(t) = -4 +2t$$
+$$l_2: x_2(s) = 1 - s, \; y_2(s) = 1 + 3s, \; z_2(s) = 2s$$
+
+Solution:
+\begin{align*}
+    \vec{v_1} &= \langle 1, -1, 2\rangle\\
+    \vec{v_2} &= \langle -1, 3, 2\rangle
+\end{align*}
+Therefore the lines are not parallel or coincident. 
+$$\begin{cases}
+    1 + t = 1 - s\\
+    -1 - t = 1 +3s\\
+    -4 + 2t = 2s
+\end{cases}$$
+Because we have only two variables, only the first equations are needed to solve. If when checking, however, the third is true, the lines are intersecting. Else, they are skew. 
+We add the first two equations:
+$$0 = 2 + 2s \implies s = -1$$
+Plugging in $s$:
+$$1 + t = 1 - (-1) \implies t = 1$$
+We check with the third equation:
+$$-4 + 2(1) = 2(-1)$$ which is true so the lines are intersecting. 
+To find the point of intersection, we plug either variable in to the original lines:
+$$l_1(1) = (2, -2, -2) \quad \blacksquare$$
+
+Intersecting planes:
+Two planes are parallel if their normal vectors are parallel. Otherwise, they intersect at a line. The direction vector for that line of intersection is the cross product of the normal vectors from the two planes. 
+
+\subsubsection{Cylinders and Quadric Surfaces}
+\emph{Cylinder:} a surface that is generated by moving a straight line along a given planar curve (\emph{the generating curve}) while holding the line parallel to a given fixed line. 
+
+Unlike in solid geometry, the generating curves are not limited to circles.
+
+Example:
+"Find an equation for the cylinder made by the lines parallel to the z-axis that pass through the parabola $y = x^2, \; z=0$"
+
+Solution:
+$P_0 (x_0, x_0^2, 0)$ lies on the parabola $y=x^2$ in the xy-plane. Then, $\forall z, Q(x_0, x_0^2, z)$ is on the cylinder because it will lie on the line $y=x^2$ through $P_0$ parallel to the z-axis. 
+
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{cylinder.png} 
+\end{center}
+
+\emph{Quadric surfaces:} the graph in space of a second-degree equation in x, y, z. The most simple form is 
+$$Ax^2 + By^2 + Cz^2 + Dz = E$$
+for A, B, C, D, and E are constants.
+
+The basic quadric surfaces are ellipsoids, paraboloids, elliptical cones, and hyperboloids. 
+
+\subsubsection{The Ellipsoid:}
+$$\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1$$
+cuts the coordinate axes at $(\pm a, 0, 0),\;(0, \pm b, 0),\;(0, 0, \pm c)$ and lies within the rectangular box defined by $|x| \leq a, \; |y| \leq b, \; |z| \leq c$ and the surface is symmetric.
+
+\includegraphics[width=\textwidth]{ellipsoid.png}
+
+The cross sections for each of the three coordinate planes are ellipses.
+
+If any two of the semiaxes a, b, c are equal, the surface is an ellipsoid of revolution. If all three are  equal, the surface is a sphere.
+
+\subsubsection{The Hyperbolic Paraboloid:}
+$$\frac{y^2}{b^2} - \frac{x^2}{a^2} = \frac{z}{c}, \quad c> 0$$
+which has symmetry with respect to $x= 0$ and $y=0$. The cross sections in these planes are 
+\begin{center}
+    $x =0$: \quad the parabola $z = \frac{c}{b^2} y^2$\\
+    $y=0$: \quad the parabola $z = - \frac{c}{a^2} x^2$
+\end{center}
+
+\includegraphics[width=\textwidth]{hyperbolic.png}
+
+If we cut the surface by a plane $z = z_0 > 0$, the cross section is a hyperbola with its focal axis parallel to the y-axis and its vertices on the parabola for $x=0$ above. If $z_0$ is negative, the focal axis is parallel to the x-axis and the vertices lie on the parabola for $y = 0$ above. 
+
+Near the origin, the surface is shaped like a saddle or mountain pass. Travelling along the surface in the yz-plane, the origin looks like a minimum. Travelling along the xz-plane, the origin looks like a maximum. This is a \emph{saddle point}
+
+\subsubsection{General Quadric Surfaces}
+The general equation for a quadric surface in three variables is 
+$$Ax^2 + By^2 + Cz^2 + Dxy + Exz + Fyz + Gz + Hy + Iz + J = 0$$
+Terms of the type Gx, Hy, or Iz lead to translations.
+
+Example 4:
+"Identify the surface given by the equation $x^2 + y^2 + 4z^2 - 2x + 4y + 1 = 0$"
+
+Solution:
+Complete the square
+$$x^2 + y^2 + 4z^2 - 2x + 4y + 1 = (x -1)^2 + (y+2)^2 + 4z^2 - 4$$
+We can rewrite the original equation as 
+$$\frac{(x-1)^2}{4} + \frac{(y+2)^2}{4} + \frac{z^2}{1} =1$$
+This is the equation of an ellipsoid whose three semiaxes have lengths 2, 2, and 1 which is centered at the point (1, -2, 0). 
+
+\subsubsection{Graphs of Quadric Surfaces:}
+\begin{center}
+    \includegraphics[width=\textwidth]{graphs 1.png}\\
+    \includegraphics[width=\textwidth]{graphs 2.png}\\\includegraphics[width=\textwidth]{graphs 3.png}\\
+\end{center}
+
+\subsection{Curves in space}
+We can describe the path of a particle's motion through space by defining its coordinates as functions on I:
+$$x=f(t), \; y=g(t),\; z=h(t)$$
+In vector form:
+$$\vec{r}(t) = f(t) \hat{i} + g(t)\hat{j} + h(t) \hat{k}$$
+
+In general, f, g, and h are \emph{component functions} of the position vector.
+
+\emph{Vector function:} a function on a domain set D that assigns a vector in space to each element in D. 
+
+When the domain is an interval of real numbers, the graph represents a curve in space. When domains are regions in the plane, the graph will be a surface in space. 
+
+\emph{Scalar functions:} real valued functions such as the components of a vector function
+
+\textbf{The domain of a vector-valued function is the common domain of its components.}
+
+\subsubsection{Limits of vector functions}
+Let $\vec{r}(t) = f(t)\hat{i} + g(t) \hat{j} + h(t) \hat{k}$ be a vector function with domain D, and let $\vec{L}$ be a vector. We say that $\vec{r}$ has limit $\vec{L}$ as $t \rightarrow t_0$:
+$$\lim_{t \to t_0} \vec{r}(t )= \vec{L}$$
+if, for every number $\varepsilon > 0$, there exists a corresponding number $\delta > 0$ such that for all $t \in D$
+$$|\vec{r}(t) - \vec{L}| < \varepsilon \quad \text{when} \quad 0 < |t - t_0| < \delta$$
+
+Further, if $\vec{L} = L_1 \hat{i} + L_2 \hat{j} + L_3 \hat{k}$, then $\lim_{t\to t_0} \vec{r}(t) = \vec{L}$ when 
+$$\lim_{t \to t_0} f(t) = L_1, \; \lim_{t \to t_0} g(t) = L_2, \; \lim_{t \to t_0} h(t) = L_3$$
+
+\textbf{Definition:}
+A vector function $\vec{r}(t)$ is continuous at a point $t = t_0$ in its domain if 
+$$\lim _{t\to t_0} \vec{r}(t_0)$$
+The function is \emph{continuous} if it is continuous at every point in its domain. 
+
+\subsubsection{Derivatives and motion:}
+The vector function $\vec{r}(t) = f(t)\hat{i} + g(t) \hat{j} + h(t) \hat{k}$ is differentiable at t if f, g, and h have derivatives at t.
+$$\vec{r}'(t) = \frac{d\vec{r}}{dt} = \lim_{\Delta t \to 0} \frac{\vec{r}(t + \Delta t) - \vec{r}(t)}{\Delta t} = \frac{df}{dt} \hat{i} + \frac{dg}{dt} \hat{j} + \frac{dh}{dt} \hat{k}$$
+
+\emph{Differentiable:} a property of a function if it has a derivative at every point of its domain
+
+\emph{Smooth:} a property of the curve traced by $\vec{r}$ if $\frac{d\vec{r}}{dt}$ is continuous and never $\vec{0}$ 
+On a smooth curve, there are no sharp corners or cusps. 
+
+\emph{Tangent line:} the line through a point $(f(t_0), g(t_0), h(t_0))$ parallel to $\vec{r}'(t)$. 
+
+\emph{Piecewise smooth:} a curve that is made up of a finite number of smooth curves pieced together in a continuous fashion
+
+If $\vec{r}$ is the position vector of a particle moving along a smooth curve,
+\begin{enumerate}
+    \item Velocity is the derivative of position: \quad $\vec{v} = \frac{d\vec{r}}{dt}$
+    \item Speed is the magnitude of velocity: \quad Speed = $|\vec{v}|$
+    \item Acceleration is the derivative of velocity: \quad $\vec{a} = \frac{d\vec{v}}{dt} = \frac{d^2 \vec{r}}{dt^2}$
+    \item The unit vector $\vec{v} / |\vec{v}|$ is the direction of motion at time t
+\end{enumerate}
+
+\subsubsection{Differentiation rules:}
+\begin{itemize}
+    \item $\frac{d}{dt} \vec{C} = \vec{0}$
+    \item $\frac{d}{dt} [c \vec{u}(t)] = c \vec{u}'(t)$
+    \item $\frac{d}{dt} [f(t) \vec{u(t)}] = f'(t) \vec{u(t)} + f(t)\vec{u}'(t)$
+    \item $\frac{d}{dt} [\vec{u}(t) + \vec{v}(t)] = \vec{u}'(t) + \vec{v}'(t)$
+    \item  $\frac{d}{dt} [\vec{u}(t) - \vec{v}(t)] = \vec{u}'(t) - \vec{v}'(t)$
+    \item  $\frac{d}{dt} [\vec{u}(t) \cdot \vec{v}(t)] = \vec{u}'(t) \cdot \vec{v}(t) + \vec{u}(t) \cdot \vec{v}'(t)$
+    \item  $\frac{d}{dt} [\vec{u}(t) \times \vec{v}(t)] = \vec{u}'(t) \times \vec{v}(t) + \vec{u}(t) \times \vec{v}'(t)$
+    \item $\frac{d}{dt} [\vec{u} (f(t))] = f'(t) \vec{u}'(f(t))$
+\end{itemize}
+
+\textbf{If $\vec{r}$ is a differentiable vector function of t and the length of $\vec{r}(t)$ is constant, then}
+$$\vec{r} \cdot \frac{d\vec{r}}{dt} = 0$$
+
+\subsubsection{Integrals of vector functions:}
+\emph{Indefinite integral:} the set of all anti-derivatives of $\vec{r}$, denoted by $\int \vec{r}(t) dt$. If $\vec{R}$ is any antiderivative of $\vec{r}$, then
+$$\int \vec{r}(t) dt = \vec{R}(t) + \vec{C}$$
+
+If the components of $\vec{t} = f(t) \hat{i} + g(t)\hat{j} + h(t) \hat{k}$ are integrable over [a, b] then so is $\vec{r}$, forming the definite integral of $\vec{r}$ from a to b:
+$$\int_a^b \vec{r}(t) dt = \left(\int_a^b f(t) dt\right) \hat{i} + \left(\int_a^b g(t) dt\right) \hat{j} +\left(\int_a^b h(t) dt\right) \hat{k}$$
+
+\emph{The Fundamental Theorem of Calculus:}
+$$\int_a^b \vec{r}(t) dt = \vec{R}(t) \Bigr|_a^b = \vec{R}(b) - \vec{R}(a)$$
+
+An antiderivative of a vector function is also a vector function but a definite integral of a vector function is a single constant vector. 
+
+\emph{Ideal projectile motion equation:}
+$$\vec{r} = (v_0 \cos \alpha)t \hat{i} + \left((v_0 \sin \alpha)t - \frac{1}{2}gt^2\right) \hat{j}$$
+where $\alpha$ is the launch angle and $v_0 = |\vec{v}|$, the initial speed.
+
+Formulas:
+\begin{itemize}
+    \item $y_{\text{max}} =  \frac{(v_0 \sin \alpha)^2}{2g}$
+    \item $t = \frac{2v_0 \sin \alpha}{g}$
+    \item $R = \frac{v_0^2}{g}\sin 2\alpha$
+\end{itemize}
+%%%------------------------------------------------------------------------------------- %%%
+
+\subsection{WEEK 3: Arclength, curvature, acceleration (Readings 13.3-13.6)}
+
+The lengths of a smooth curve $\vec{r}(t) = x(t) \hat{i} + y(t) \hat{j} + z(t) \hat{k}, \; a \leq t\leq b$ that is traced exactly once as t increases from $t = a$ to $t=b$ is
+$$L = \int_a^b \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2 + \left(\frac{dz}{dt}\right)^2}dt = \int_a^b \biggl|\frac{d\vec{r}}{dt}\biggr| dt$$
+
+If we choose a base point $P(t_0)$ on a smooth curve C parameterised by t, each value of t determines a point $P(t) = (x(t), y(t), z(t))$ on C and a \emph{directed distance}
+$$s(t) = \int_{t_0}^t |\vec{v}(\tau)| d \tau$$
+and 
+$$\frac{ds}{dt} = |\vec{v}(t)|$$ 
+
+Each value of s determines a point on C, parameterising C with respect to s, making s an \emph{arc length parameter} for the curve. 
+%%% ------------------------------------------------------------------------------------- %%%
+%%% ------------------------------------------------------------------------------------- %%%
+%%% ------------------------------------------------------------------------------------- %%%
+\pagebreak
+\section{Module 2: Partial Derivatives and Applications}
+\subsection{WEEK 4: Calculus of multivariable functions (Readings 14.1-14.4)}
+
+%%% ------------------------------------------------------------------------------------- %%%
+\subsection{WEEK 5: Gradients, tangent planes, and extreme values (Readings 14.5-14.7)}
+
+%%% ------------------------------------------------------------------------------------- %%%
+\subsection{WEEK 6: Lagrange multipliers and Taylor's formula (Readings 14.8-14.10)}
+
+%%% ------------------------------------------------------------------------------------- %%%
+%%% ------------------------------------------------------------------------------------- %%%
+%%% ------------------------------------------------------------------------------------- %%%
+\pagebreak
+\section{Module 3: Integrals}
+\subsection{WEEK 7: Double integrals and area (Readings 15.1-15.3)}
+
+%%% ------------------------------------------------------------------------------------- %%%
+\subsection{WEEK 8: Double and tripe integrals (Readings 15.4-15.6)}
+
+%%% ------------------------------------------------------------------------------------- %%%
+\subsection{WEEK 9: Triple integrals and applications (Readings 15.7-15.8)}
+
+%%% ------------------------------------------------------------------------------------- %%%
+%%% ------------------------------------------------------------------------------------- %%%
+%%% ------------------------------------------------------------------------------------- %%%
+\pagebreak
+\section{Module 4: Integrals and Vector Fields}
+\subsection{WEEK 10: Line integrals and vector fields (Readings 16.1-16.3)}
+
+%%% ------------------------------------------------------------------------------------- %%%
+\subsection{WEEK 12: Green's theorem and surfaces (Readings 16.4-16.6)}
+
+%%% ------------------------------------------------------------------------------------- %%%
+\subsection{WEEK 13: Stokes' and Divergence theorems (Readings 16.7-16.8)}
+\end{document}
