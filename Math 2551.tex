@@ -50,7 +50,7 @@
 
 \title{Georgia Tech Math 2551}
 \author{Milan Capoor}
-\date{Spring 2021} 
+\date{Spring 2022} 
 
 \begin{document}
 \maketitle
@@ -486,7 +486,121 @@ $$s(t) = \int_{t_0}^t |\vec{v}(\tau)| d \tau$$
 and 
 $$\frac{ds}{dt} = |\vec{v}(t)|$$ 
 
-Each value of s determines a point on C, parameterising C with respect to s, making s an \emph{arc length parameter} for the curve. 
+Each value of s determines a point on C, parameterising C with respect to s, making s an \emph{arc length parameter} for the curve. The parameter's value increases in the direction of increasing t. 
+
+Arc length parameter with Base Point $P(t_0)$:
+$$s(t) = \int_{t_0}^t \sqrt{[x'(\tau)^2] + [y'(\tau)^2] + [z'(\tau)^2]} d\tau = \int_{t_0}^t |\vec{v}(\tau)| d\tau$$
+
+If a given curve $\vec{r}(t)$ is already given in terms of some parameter and the arclength is $s(t)$ then we can solve for t as a function of $s: t = t(s)$. Then the curve can be parameterised in terms of s by substituting for $t: \vec{r} = \vec{r} (t(s))$. This identifies a point on the curve with its directed distance along the curve from the base point. 
+
+The speed with which a particle moves along its path is the magnitude of $\vec{v}$:
+$$\frac{ds}{dt} = |\vec{v}(t)|$$
+
+Because the velocity vector $\vec{v} = \frac{d\vec{r}}{dt}$ is tangent to $\vec{r}(t)$ so the vector 
+$$\vec{T} = \frac{\vec{v}}{|\vec{v}|}$$
+is a unit vector tangent to the curve. $\vec{T}$ is a differentiable function of t whenever $\vec{v}$ is a differentiable function of t. 
+
+\subsubsection{Curvature of a curve}
+\emph{Curvature:}
+$$k = \left| \frac{d\vec{T}}{ds}\right| = \frac{1}{|\vec{v}|} \left| \frac{d\vec{T}}{dt} \right|$$
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{curvature.png}
+\end{center}
+
+If $|d\vec{T}/ds|$ is large, $\vec{T}$ turns sharply as the particle passes through P and the curvature is large. If the length is small, $\vec{T}$ turns more slowly
+
+\emph{Principal unit normal vector:} a unit vector orthogonal to $\vec{T}$ which points in the direction the curve is turning (towards the concave side of the curve)
+$$\vec{N} = \frac{1}{k} \frac{d\vec{T}}{ds} = \frac{d\vec{T}/dt}{|d\vec{T}/dt|}$$
+
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{principal normal.png}
+\end{center}
+
+\emph{Osculating circle:} the circle of curvature at a point P on a plane curve that 
+\begin{enumerate}
+    \item is tangent to the curve at P (has the same tangent line as the curve)
+    \item has the same curvature at P
+    \item has center that lies toward the concave (inner) side of the curve
+\end{enumerate}
+
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{circle of curvature.png}
+\end{center}
+\emph{Radius of curvature:} the radius of the circle of curvature $\rho = \frac{1}{k}$
+
+\emph{Center of curvature:} the center of the circle of curvature
+
+\subsubsection{Acceleration in space}
+Travelling along a curve, the \textbf{IJK} reference frame is generally less importnat than the vector of forward motion ($\vec{T}$), the direction the path is turning ($\vec{N}$), and the tendency of the to "twist" out of the plane of those vectors (\emph{the unit binormal vector} $\vec{B} = \vec{T} \times \vec{N}$)
+
+These vectors together form a moving right-handed vector frame called the \emph{Frenet Frame} or the TNB frame.
+
+\begin{align*}
+    \vec{v} &= \frac{d\vec{r}}{dt} = \frac{d\vec{r}}{ds} \frac{ds}{dt} = \vec{T} \frac{ds}{dt}\\
+    \vec{a} &= \frac{d\vec{v}}{dt} = \frac{d^2 s}{dt^2} \vec{T} + k \left(\frac{ds}{dt}\right)^2 \vec{N} 
+\end{align*}
+Also, 
+$$|v\times a| = k \left|\frac{ds}{dt}\right|^3 |\vec{B}| = k |\vec{v}|^3$$
+so 
+$$k = \frac{|\vec{v} \times \vec{a}|}{|\vec{v}|^3}$$
+
+If the acceleration vector is written as $\vec{a} = a_T \vec{T} + a_N \vec{N}$, then the tangential and normal scalar components of acceleration are 
+\begin{align*}
+    a_T &= \frac{d^2 s}{dt^2} = \frac{d}{dt} |\vec{v}|\\
+    a_N &= k \left(\frac{ds}{dt}\right)^2 = k |\vec{v}|^2 = \sqrt{|\vec{a}|^2 - a_T^2}
+\end{align*}
+Further, acceleration will always line in the plane of $\vec{T}$ and $\vec{N}$. The tangential component $a_T$ measures the rate of change of the length of $\vec{v}$ (the change in the speed). The normal component $a_N$ measures the rate of change of the direction of $\vec{v}$
+
+\subsubsection{Torsion}
+\emph{Torsion:} the rate at which the osculating plane turns about $\vec{T}$ as P moves along the curve. In other words, torsion measures how the curve twists
+for $\vec{B} = \vec{T} \times \vec{N}$, torsion is 
+$$\tau = -\frac{d\vec{B}}{ds} \cdot \vec{N}$$
+
+A space curve is a helix if and only if it has constant nonzero curvature and constant nonzero torsion.
+
+Torsion can also be calculated directly in terms of the parameters
+$$\tau = \frac{\begin{vmatrix}
+    \dot{x} & \dot{y} & \dot{z}\\
+    \ddot{x} & \ddot{y} & \ddot{z}\\
+    \dddot{x} & \dddot{y} & \dddot{z}\\
+\end{vmatrix}}{|\vec{v} \times \vec{a}|^2} \quad (\text{if}\;\,\vec{v} \times \vec{a} \neq \vec{0})$$
+
+\subsubsection{Motion in polar coordinates}
+When a particle moves along a curve in the polar plane, we express its position, velocity, and acceleration in terms of the moving unit vectors
+\begin{align*}
+    \vec{u}_r &= (\cos \theta) \hat{i} + (\sin \theta) \hat{j}\\
+    \vec{u}_\theta &= -(\sin \theta)\hat{i} + (\cos \theta) \hat{j}
+\end{align*}
+
+Then,
+\begin{center}
+    Position: $\quad \vec{r} = r \vec{u}_r + z \hat{k}$\\
+    Velocity: $\quad \vec{v} = \dot{r} \vec{u}_r + r \dot{\theta} \vec{u}_\theta + \dot{z} \hat{k}$\\
+    Acceleration: $\quad \vec{a} = (\ddot{r} - r \dot{\theta}^2) \vec{u}_r + (r\ddot{\theta} + 2\dot{r} \ddot{\theta}) \vec{u}_\theta + \ddot{z} \hat{k}$\\
+\end{center}
+This forms a right handed frame where
+\begin{align*}
+    \vec{u}_r \times \vec{u}_\theta &= \hat{k}\\
+    \vec{u}_\theta \times \hat{k} &= \vec{u}_r\\
+    \hat{k} \times \vec{u}_r &= \vec{u}_\theta
+\end{align*}
+
+\emph{Newton's law of universal gravitation:}
+$$\vec{F} = -\frac{GmM}{|\vec{r}|^2} \frac{\vec{r}}{|\vec{r}|}$$
+where $\vec{r}$ is the radius vector from the centre of a sun of mass M to the centre of a planet of mass m.
+
+\emph{Kepler's Laws:}
+\begin{enumerate}
+    \item A planet's path is an ellupse with the sun at one focus. The eccentricity is 
+    $$e = \frac{r_0 v_0^2}{GM} - 1$$
+    and the polar equation is 
+    $$r = \frac{(1+e)r_0}{1 + e\cos \theta}$$
+    \item The radius vector from the sun to a planet sweeps out equal areas in equal times. If the initial line is $\theta = 0$, the direction $\vec{r}$ when $|\vec{r}| = r$ is a minimum value. Then, 
+    $$\dot{r}\big|_{t=0} = \frac{dr}{dt}\bigg|_{t=0} = 0, \quad v_0 = |\vec{v}|_{t=0} = [r \dot{\theta}]_{t=0}$$
+    \item The orbital period and the orbit's semimajor axis a are related by 
+    $$\frac{T^2}{a^3} = \frac{4\pi^2}{GM}$$ 
+    
+\end{enumerate}
 %%% ------------------------------------------------------------------------------------- %%%
 %%% ------------------------------------------------------------------------------------- %%%
 %%% ------------------------------------------------------------------------------------- %%%
