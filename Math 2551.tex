@@ -70,7 +70,7 @@ The three planes:
 \end{itemize}
 
 Distance in three dimensions:
-$$d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$$
+\[d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}\]
 
 Example:
 "Find the distance from the point (2, -3, 1) to the plane $y = 2$."
@@ -79,7 +79,7 @@ Solution:
 The plane $y = 2$ spans all values of x and z so the only coordinate changing is y itself. $d = 2 - (-3) = 5 \blacksquare$
 
 \emph{Sphere:} a three-dimensional object where every point on its surface is equidistant from its centre. The centre has coordinates $x_0, y_0, z_0$ and the distance from the centre to each point on the surface is the radius.
-$$(x - x_0)^2 + (y-y_0)^2 + (z-z_0)^2 = a^2$$
+\[x - x_0)^2 + (y-y_0)^2 + (z-z_0)^2 = a^2\]
 
 Example:
 "Identify the centre C and radius a for the sphere given by $2x^2 + 2y^2 + 2x^2 - 8x + 12y - 20z  = 22$
@@ -92,7 +92,7 @@ Solution:
     (x - 2)^2 + (y + 3)^2 + (z - 5)^2 &= 11 + 4 + 9 + 25\\
     (x - 2)^2 + (y + 3)^2 + (z - 5)^2 &= 49
 \end{align*}
-$$C = (2, -3, 5) \quad a = 7$$
+\[C = (2, -3, 5) \quad a = 7\]
 
 Example:
 "Give a geometric description of the sets defined by $y^2 + z^2 = 4, x = 2$"
@@ -103,7 +103,7 @@ A circle of radius 2 on the plane $x = 2$
 \emph{Vector:} an object with a direction and a length, represented by a directed line segment
 
 If point P has coordinates $(x_1, y_1, z_1)$ and point Q has coordinates $(x_2, y_2, z_2)$, then 
-$$\vec{PQ} = \langle x_2 - x_1, y_2 - y_1, z_2 - z_1 \rangle$$
+\[vec{PQ} = \langle x_2 - x_1, y_2 - y_1, z_2 - z_1 \rangle\]
 
 \emph{Magnitude of a vector:} the length or norm of a vector, found using the distance formula. Written $||\vec{v}||$
 
@@ -120,11 +120,11 @@ Solution:
 
 Vector Addition:
 Given $\vec{u} = \langle u_1, u_2, u_3\rangle$ and $\vec{v} = \langle v_1, v_2, v_3\rangle$,
-$$\vec{u} + \vec{v} = \langle u_1 + v_1, u_2 + v_2, u_3 + v_3\rangle$$
+\[vec{u} + \vec{v} = \langle u_1 + v_1, u_2 + v_2, u_3 + v_3\rangle\]
 
 Vector multiplication by a scalar:
 Given $\vec{u} = \langle u_1, u_2, u_3\rangle$, 
-$$k\vec{u} = \langle ku_1, ku_2, ku_3\rangle$$
+\[k\vec{u} = \langle ku_1, ku_2, ku_3\rangle\]
 
 All the normal properties (commutivity, associativity, additive identity, additive inverse, multiplicative identity, zero multiplication, and distributivity) hold for vectors.
 
@@ -153,24 +153,25 @@ Example:
 
 Solution:
 From the unit circle 
-$$\hat{r} = \frac{1}{2} \hat{i} - \frac{\sqrt{3}}{2} \hat{j}$$
+\[\hat{r} = \frac{1}{2} \hat{i} - \frac{\sqrt{3}}{2} \hat{j}\]
 
 \emph{The Dot Product:} a scalar value 
-$$\vec{u} \cdot \vec{v} = u_1v_1 + ... + u_nv_n = ||\vec{u}||\;||\vec{v}|| \cos\theta$$
+\[\vec{u} \cdot \vec{v} = u_1v_1 + ... + u_nv_n = ||\vec{u}||\;||\vec{v}|| \cos\theta\]
 This can give us the angle between two vectors 
-$$\theta = \cos^{-1} (\frac{\vec{u} \cdot \vec{c}}{||\vec{u}||\;||\vec{v}||})$$ 
+\[\theta = \cos^{-1} (\frac{\vec{u} \cdot \vec{c}}{||\vec{u}||\;||\vec{v}||})\]
 
 Vectors are orthogonal if $\vec{v} \cdot \vec{u} = 0$
 
 \emph{Vector projection:}
-$$\text{proj}_b \vec{a} =  (\frac{\vec{a}\cdot\vec{b}}{||\vec{b}||}) \frac{\vec{b}}{||\vec{b}||}$$
+\[\text{proj}_b \vec{a} =  (\frac{\vec{a}\cdot\vec{b}}{||\vec{b}||}) \frac{\vec{b}}{||\vec{b}||}\]
 
-\emph{Scalar component of a in the direction of b:} The value $$\text{comp}_b \vec{a} = \frac{\vec{a}\cdot\vec{b}}{||\vec{b}||} = ||\vec{a}|| \cos \theta$$
+\emph{Scalar component of a in the direction of b:} The value 
+\[\text{comp}_b \vec{a} = \frac{\vec{a}\cdot\vec{b}}{||\vec{b}||} = ||\vec{a}|| \cos \theta\]
 
 \emph{Work:} $W = F \cdot D$ for a force F acting through a distance D
 
 \emph{Cross product:} the vector 
-$$\vec{a} \times \vec{b} = ||\vec{a}|| \; ||\vec{b}|| \sin \theta \hat{n}$$
+\[\vec{a} \times \vec{b} = ||\vec{a}|| \; ||\vec{b}|| \sin \theta \hat{n}\]
 Where $\theta$ is the angle between the vectors and $\hat{n}$ is the unit vector perpendicular to the plane containing vectors $\vec{a}$ and $\vec{b}$
 
 The product $||\vec{a}|| \; ||\vec{b}|| \sin \theta$ also corresponds to the area of the parallelogram formed by the vectors 
@@ -189,11 +190,11 @@ Properties of the cross product:
 
 Calculating the Cross Product as a determinant:
 For $\vec{u} = u_1 \hat{i} + u_2 \hat{j} + u_3 \hat{k}$ and $\vec{v} = v_1 \hat{i} + v_2 \hat{j} + v_3 \hat{k}$, then 
-$$\vec{u} \times \vec{v} = \begin{vmatrix}
+\[\vec{u} \times \vec{v} = \begin{vmatrix}
     \vec{i} & \vec{j} & \vec{k}\\
     u_1 & u_2 & u_3\\
     v_1 & v_2 & v_3
-\end{vmatrix}$$
+\end{vmatrix}\]
 
 Example:
 "Find the area of the parallelogram with vertices A(2, 1, 4), B(1, 4, 3), C(1, 0, 2), D(2, -3, 3)"
@@ -206,28 +207,28 @@ Solution:
     \vec{AD} &= \langle 0, -4, -1
 \end{align*}
 Because $\vec{AB}$ and $\vec{CD}$ are parallel but in opposite directions, we can know to calculate the cross of any two adjacent sides to find the area. 
-$$A = ||\vec{AB} \times \vec{AD}||$$
-$$\vec{AB} \times \vec{AD} = \begin{vmatrix}
+\[A = ||\vec{AB} \times \vec{AD}||\]
+\[ \vec{AB} \times \vec{AD} = \begin{vmatrix}
     \vec{i} & \vec{j} & \vec{k}\\
     -1 & 3 & -1\\
     0 & -4 & -1
-\end{vmatrix} = -7\hat{i} + \hat{j} + 4\hat{k}$$
-$$A = ||-7\hat{i} - \hat{j} + 4\hat{k}|| = \sqrt{66} \blacksquare$$
+\end{vmatrix} = -7\hat{i} + \hat{j} + 4\hat{k}\]
+\[A = ||-7\hat{i} - \hat{j} + 4\hat{k}|| = \sqrt{66} \blacksquare\]
 
 The absolute value of the triple scalar product ($(\vec{u}\times \vec{v}) \cdot \vec{w}$) is the volume of the parallelepiped determined by the three vectors.
 
 Helpfully, 
-$$(\vec{u}\times \vec{v}) \cdot \vec{w} = \begin{vmatrix}
+\[(\vec{u}\times \vec{v}) \cdot \vec{w} = \begin{vmatrix}
     u_1 & u_2 & u_3\\
     v_1 & v_2 & v_3\\
     w_1 & w_2 & w_3
-\end{vmatrix}$$
+\end{vmatrix}\]
 
 
 %%%------------------------------------------------------------------------------------- %%%
 \subsection{WEEK 2: Curves, Tangents, Motion (Readings 12.5-13.2)}
 A vector equation for the line L through the point $P_0 (x_0, y_0, z_0)$ parallel to the vector $\vec{v}$ is given by 
-$$\vec{r}(t) = \vec{r}_0 + t \vec{v}, \quad -\infty < t < \infty$$
+\[\vec{r}(t) = \vec{r}_0 + t \vec{v}, \quad -\infty < t < \infty\]
 where $\vec{r}$ is the position vector of a point $P(x,y,z)$ on L and $\vec{r}_0$ is the position vector of  $P_0 (x_0, y_0, z_0)$ .
 
 The \emph{standard parameterisation} of the line L through the point $P_0 (x_0, y_0, z_0)$ parallel to $\vec{v} = v_1 \hat{i} + v_2 \hat{j} + v_3 \hat{k}$ is given by 
@@ -242,7 +243,7 @@ Distance from a point to a line in space:
 \begin{center}
     \includegraphics[width=0.5\textwidth]{projection onto line.png}
 \end{center}
-$$d = \frac{||\vec{PS} \times \vec{v}||}{||\vec{v}||}$$
+\[d = \frac{||\vec{PS} \times \vec{v}||}{||\vec{v}||}\]
 
 Example:
 "Find the distance from S(2,0,2) to the line through P(3,-1,1) parallel to the vector $\vec{v} = \hat{i} - 2\hat{j} - 2\hat{k}$"
@@ -261,9 +262,9 @@ Solution:
 
 Equations for a plane: 
 The plane through the point $P_0 (x_0, y_0, z_0)$ normal to $\vec{n} = A\hat{i} + B\hat{j} + C \hat{k}$ is given by the \emph{vector equation}
-$$\vec{n} \cdot \vec{P_0 P} = 0$$
+\[\vec{n} \cdot \vec{P_0 P} = 0\]
 and the \emph{component equation}
-$$A(x - x_0)+B(y-y_0)+C(z-z_0) = 0$$
+\[A(x - x_0)+B(y-y_0)+C(z-z_0) = 0\]
 
 In other words, the direction of the plane is defined by the vector normal to it. 
 
@@ -272,7 +273,7 @@ Example:
 
 Solution: 
 If the plane contains a point and a line distinct from each other, then the cross product of the vector for that point and the equation for the line will be normal to both of them and thus the plane. 
-$$\ell \rightarrow \ell(0, 0, 2)$$
+\[\ell \rightarrow \ell(0, 0, 2)\]
 \begin{center}
     $\vec{QP} = \langle 1,3,2\rangle$\\
     $\vec{d} = \langle 3,4,2\rangle$\\
@@ -281,20 +282,22 @@ $$\ell \rightarrow \ell(0, 0, 2)$$
     $\vec{n} = \vec{QP} \times \vec{d} = -2\hat{i} + 4\hat{j}-5\hat{k}$\\
     $-2(x-1)+4(y-3)-5(z-4) = 0$\\
 \end{center}
-$$2x -4y - 5z = 10$$
+\[2x -4y - 5z = 10\]
 
 \emph{Angle between two planes:} the acute angle between their normal vectors
-$$\cos \theta = \frac{|\vec{n}_1 \cdot \vec{n}_2|}{||\vec{n}_1|| \; ||\vec{n}_2||}$$
+\[\cos \theta = \frac{|\vec{n}_1 \cdot \vec{n}_2|}{||\vec{n}_1|| \; ||\vec{n}_2||}\]
 
 Distance from a point to a plane:
-$$d = \begin{vmatrix}
+\[d = \begin{vmatrix}
     \vec{PS} \cdot \frac{\vec{n}}{||\vec{n}||}
-\end{vmatrix}$$
+\end{vmatrix}\]
 
 Example: 
 "Determine whether the lines $l_1$ and $l_2$ are parallel, coincident, skew, or intersecting."
-$$l_1: x_1(t) = 1 + t, \; y_1(t) = -1 - t, \; z_1(t) = -4 +2t$$
-$$l_2: x_2(s) = 1 - s, \; y_2(s) = 1 + 3s, \; z_2(s) = 2s$$
+\begin{align*}
+    &l_1: x_1(t) = 1 + t, \quad y_1(t) = -1 - t, \quad z_1(t) = -4 +2t\\
+    &l_2: x_2(s) = 1 - s, \quad y_2(s) = 1 + 3s, \quad z_2(s) = 2s
+\end{align*}    
 
 Solution:
 \begin{align*}
@@ -302,20 +305,20 @@ Solution:
     \vec{v_2} &= \langle -1, 3, 2\rangle
 \end{align*}
 Therefore the lines are not parallel or coincident. 
-$$\begin{cases}
+\[\begin{cases}
     1 + t = 1 - s\\
     -1 - t = 1 +3s\\
     -4 + 2t = 2s
-\end{cases}$$
+\end{cases}\]
 Because we have only two variables, only the first equations are needed to solve. If when checking, however, the third is true, the lines are intersecting. Else, they are skew. 
 We add the first two equations:
-$$0 = 2 + 2s \implies s = -1$$
+\[0 = 2 + 2s \implies s = -1\]
 Plugging in $s$:
-$$1 + t = 1 - (-1) \implies t = 1$$
+\[1 + t = 1 - (-1) \implies t = 1\]
 We check with the third equation:
-$$-4 + 2(1) = 2(-1)$$ which is true so the lines are intersecting. 
+\[4 + 2(1) = 2(-1)\] which is true so the lines are intersecting. 
 To find the point of intersection, we plug either variable in to the original lines:
-$$l_1(1) = (2, -2, -2) \quad \blacksquare$$
+\[l_1(1) = (2, -2, -2) \quad \blacksquare\]
 
 Intersecting planes:
 Two planes are parallel if their normal vectors are parallel. Otherwise, they intersect at a line. The direction vector for that line of intersection is the cross product of the normal vectors from the two planes. 
@@ -336,13 +339,13 @@ $P_0 (x_0, x_0^2, 0)$ lies on the parabola $y=x^2$ in the xy-plane. Then, $\fora
 \end{center}
 
 \emph{Quadric surfaces:} the graph in space of a second-degree equation in x, y, z. The most simple form is 
-$$Ax^2 + By^2 + Cz^2 + Dz = E$$
+\[Ax^2 + By^2 + Cz^2 + Dz = E\]
 for A, B, C, D, and E are constants.
 
 The basic quadric surfaces are ellipsoids, paraboloids, elliptical cones, and hyperboloids. 
 
 \subsubsection{The Ellipsoid:}
-$$\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1$$
+\[\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1\]
 cuts the coordinate axes at $(\pm a, 0, 0),\;(0, \pm b, 0),\;(0, 0, \pm c)$ and lies within the rectangular box defined by $|x| \leq a, \; |y| \leq b, \; |z| \leq c$ and the surface is symmetric.
 
 \includegraphics[width=\textwidth]{ellipsoid.png}
@@ -352,7 +355,7 @@ The cross sections for each of the three coordinate planes are ellipses.
 If any two of the semiaxes a, b, c are equal, the surface is an ellipsoid of revolution. If all three are  equal, the surface is a sphere.
 
 \subsubsection{The Hyperbolic Paraboloid:}
-$$\frac{y^2}{b^2} - \frac{x^2}{a^2} = \frac{z}{c}, \quad c> 0$$
+\[\frac{y^2}{b^2} - \frac{x^2}{a^2} = \frac{z}{c}, \quad c> 0\]
 which has symmetry with respect to $x= 0$ and $y=0$. The cross sections in these planes are 
 \begin{center}
     $x =0$: \quad the parabola $z = \frac{c}{b^2} y^2$\\
@@ -367,7 +370,7 @@ Near the origin, the surface is shaped like a saddle or mountain pass. Travellin
 
 \subsubsection{General Quadric Surfaces}
 The general equation for a quadric surface in three variables is 
-$$Ax^2 + By^2 + Cz^2 + Dxy + Exz + Fyz + Gz + Hy + Iz + J = 0$$
+\[Ax^2 + By^2 + Cz^2 + Dxy + Exz + Fyz + Gz + Hy + Iz + J = 0\]
 Terms of the type Gx, Hy, or Iz lead to translations.
 
 Example 4:
@@ -375,9 +378,9 @@ Example 4:
 
 Solution:
 Complete the square
-$$x^2 + y^2 + 4z^2 - 2x + 4y + 1 = (x -1)^2 + (y+2)^2 + 4z^2 - 4$$
+\[x^2 + y^2 + 4z^2 - 2x + 4y + 1 = (x -1)^2 + (y+2)^2 + 4z^2 - 4\]
 We can rewrite the original equation as 
-$$\frac{(x-1)^2}{4} + \frac{(y+2)^2}{4} + \frac{z^2}{1} =1$$
+\[\frac{(x-1)^2}{4} + \frac{(y+2)^2}{4} + \frac{z^2}{1} =1\]
 This is the equation of an ellipsoid whose three semiaxes have lengths 2, 2, and 1 which is centered at the point (1, -2, 0). 
 
 \subsubsection{Graphs of Quadric Surfaces:}
@@ -388,9 +391,9 @@ This is the equation of an ellipsoid whose three semiaxes have lengths 2, 2, and
 
 \subsection{Curves in space}
 We can describe the path of a particle's motion through space by defining its coordinates as functions on I:
-$$x=f(t), \; y=g(t),\; z=h(t)$$
+\[x=f(t), \; y=g(t),\; z=h(t)\]
 In vector form:
-$$\vec{r}(t) = f(t) \hat{i} + g(t)\hat{j} + h(t) \hat{k}$$
+\[\vec{r}(t) = f(t) \hat{i} + g(t)\hat{j} + h(t) \hat{k}\]
 
 In general, f, g, and h are \emph{component functions} of the position vector.
 
@@ -404,21 +407,21 @@ When the domain is an interval of real numbers, the graph represents a curve in 
 
 \subsubsection{Limits of vector functions}
 Let $\vec{r}(t) = f(t)\hat{i} + g(t) \hat{j} + h(t) \hat{k}$ be a vector function with domain D, and let $\vec{L}$ be a vector. We say that $\vec{r}$ has limit $\vec{L}$ as $t \rightarrow t_0$:
-$$\lim_{t \to t_0} \vec{r}(t )= \vec{L}$$
+\[\lim_{t \to t_0} \vec{r}(t )= \vec{L}\]
 if, for every number $\varepsilon > 0$, there exists a corresponding number $\delta > 0$ such that for all $t \in D$
-$$|\vec{r}(t) - \vec{L}| < \varepsilon \quad \text{when} \quad 0 < |t - t_0| < \delta$$
+\[|\vec{r}(t) - \vec{L}| < \varepsilon \quad \text{when} \quad 0 < |t - t_0| < \delta\]
 
 Further, if $\vec{L} = L_1 \hat{i} + L_2 \hat{j} + L_3 \hat{k}$, then $\lim_{t\to t_0} \vec{r}(t) = \vec{L}$ when 
-$$\lim_{t \to t_0} f(t) = L_1, \; \lim_{t \to t_0} g(t) = L_2, \; \lim_{t \to t_0} h(t) = L_3$$
+\[\lim_{t \to t_0} f(t) = L_1, \; \lim_{t \to t_0} g(t) = L_2, \; \lim_{t \to t_0} h(t) = L_3\]
 
 \textbf{Definition:}
 A vector function $\vec{r}(t)$ is continuous at a point $t = t_0$ in its domain if 
-$$\lim _{t\to t_0} \vec{r}(t_0)$$
+\[\lim _{t\to t_0} \vec{r}(t_0)\]
 The function is \emph{continuous} if it is continuous at every point in its domain. 
 
 \subsubsection{Derivatives and motion:}
 The vector function $\vec{r}(t) = f(t)\hat{i} + g(t) \hat{j} + h(t) \hat{k}$ is differentiable at t if f, g, and h have derivatives at t.
-$$\vec{r}'(t) = \frac{d\vec{r}}{dt} = \lim_{\Delta t \to 0} \frac{\vec{r}(t + \Delta t) - \vec{r}(t)}{\Delta t} = \frac{df}{dt} \hat{i} + \frac{dg}{dt} \hat{j} + \frac{dh}{dt} \hat{k}$$
+\[\vec{r}'(t) = \frac{d\vec{r}}{dt} = \lim_{\Delta t \to 0} \frac{\vec{r}(t + \Delta t) - \vec{r}(t)}{\Delta t} = \frac{df}{dt} \hat{i} + \frac{dg}{dt} \hat{j} + \frac{dh}{dt} \hat{k}\]
 
 \emph{Differentiable:} a property of a function if it has a derivative at every point of its domain
 
@@ -443,29 +446,29 @@ If $\vec{r}$ is the position vector of a particle moving along a smooth curve,
     \item $\frac{d}{dt} [c \vec{u}(t)] = c \vec{u}'(t)$
     \item $\frac{d}{dt} [f(t) \vec{u(t)}] = f'(t) \vec{u(t)} + f(t)\vec{u}'(t)$
     \item $\frac{d}{dt} [\vec{u}(t) + \vec{v}(t)] = \vec{u}'(t) + \vec{v}'(t)$
-    \item  $\frac{d}{dt} [\vec{u}(t) - \vec{v}(t)] = \vec{u}'(t) - \vec{v}'(t)$
-    \item  $\frac{d}{dt} [\vec{u}(t) \cdot \vec{v}(t)] = \vec{u}'(t) \cdot \vec{v}(t) + \vec{u}(t) \cdot \vec{v}'(t)$
-    \item  $\frac{d}{dt} [\vec{u}(t) \times \vec{v}(t)] = \vec{u}'(t) \times \vec{v}(t) + \vec{u}(t) \times \vec{v}'(t)$
+    \item $\frac{d}{dt} [\vec{u}(t) - \vec{v}(t)] = \vec{u}'(t) - \vec{v}'(t)$
+    \item $\frac{d}{dt} [\vec{u}(t) \cdot \vec{v}(t)] = \vec{u}'(t) \cdot \vec{v}(t) + \vec{u}(t) \cdot \vec{v}'(t)$
+    \item $\frac{d}{dt} [\vec{u}(t) \times \vec{v}(t)] = \vec{u}'(t) \times \vec{v}(t) + \vec{u}(t) \times \vec{v}'(t)$
     \item $\frac{d}{dt} [\vec{u} (f(t))] = f'(t) \vec{u}'(f(t))$
 \end{itemize}
 
 \textbf{If $\vec{r}$ is a differentiable vector function of t and the length of $\vec{r}(t)$ is constant, then}
-$$\vec{r} \cdot \frac{d\vec{r}}{dt} = 0$$
+\[\vec{r} \cdot \frac{d\vec{r}}{dt} = 0\]
 
 \subsubsection{Integrals of vector functions:}
 \emph{Indefinite integral:} the set of all anti-derivatives of $\vec{r}$, denoted by $\int \vec{r}(t) dt$. If $\vec{R}$ is any antiderivative of $\vec{r}$, then
-$$\int \vec{r}(t) dt = \vec{R}(t) + \vec{C}$$
+\[\int \vec{r}(t) dt = \vec{R}(t) + \vec{C}\]
 
 If the components of $\vec{t} = f(t) \hat{i} + g(t)\hat{j} + h(t) \hat{k}$ are integrable over [a, b] then so is $\vec{r}$, forming the definite integral of $\vec{r}$ from a to b:
-$$\int_a^b \vec{r}(t) dt = \left(\int_a^b f(t) dt\right) \hat{i} + \left(\int_a^b g(t) dt\right) \hat{j} +\left(\int_a^b h(t) dt\right) \hat{k}$$
+\[\int_a^b \vec{r}(t) dt = \left(\int_a^b f(t) dt\right) \hat{i} + \left(\int_a^b g(t) dt\right) \hat{j} +\left(\int_a^b h(t) dt\right) \hat{k}\]
 
 \emph{The Fundamental Theorem of Calculus:}
-$$\int_a^b \vec{r}(t) dt = \vec{R}(t) \Bigr|_a^b = \vec{R}(b) - \vec{R}(a)$$
+\[\int_a^b \vec{r}(t) dt = \vec{R}(t) \Bigr|_a^b = \vec{R}(b) - \vec{R}(a)\]
 
 An antiderivative of a vector function is also a vector function but a definite integral of a vector function is a single constant vector. 
 
 \emph{Ideal projectile motion equation:}
-$$\vec{r} = (v_0 \cos \alpha)t \hat{i} + \left((v_0 \sin \alpha)t - \frac{1}{2}gt^2\right) \hat{j}$$
+\[\vec{r} = (v_0 \cos \alpha)t \hat{i} + \left((v_0 \sin \alpha)t - \frac{1}{2}gt^2\right) \hat{j}\]
 where $\alpha$ is the launch angle and $v_0 = |\vec{v}|$, the initial speed.
 
 Formulas:
@@ -479,30 +482,30 @@ Formulas:
 \subsection{WEEK 3: Arclength, curvature, acceleration (Readings 13.3-13.6)}
 
 The lengths of a smooth curve $\vec{r}(t) = x(t) \hat{i} + y(t) \hat{j} + z(t) \hat{k}, \; a \leq t\leq b$ that is traced exactly once as t increases from $t = a$ to $t=b$ is
-$$L = \int_a^b \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2 + \left(\frac{dz}{dt}\right)^2}dt = \int_a^b \biggl|\frac{d\vec{r}}{dt}\biggr| dt$$
+\[L = \int_a^b \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2 + \left(\frac{dz}{dt}\right)^2}dt = \int_a^b \biggl|\frac{d\vec{r}}{dt}\biggr| dt\]
 
 If we choose a base point $P(t_0)$ on a smooth curve C parameterised by t, each value of t determines a point $P(t) = (x(t), y(t), z(t))$ on C and a \emph{directed distance}
-$$s(t) = \int_{t_0}^t |\vec{v}(\tau)| d \tau$$
+\[s(t) = \int_{t_0}^t |\vec{v}(\tau)| d \tau\]
 and 
-$$\frac{ds}{dt} = |\vec{v}(t)|$$ 
+\[\frac{ds}{dt} = |\vec{v}(t)|\]
 
 Each value of s determines a point on C, parameterising C with respect to s, making s an \emph{arc length parameter} for the curve. The parameter's value increases in the direction of increasing t. 
 
 Arc length parameter with Base Point $P(t_0)$:
-$$s(t) = \int_{t_0}^t \sqrt{[x'(\tau)^2] + [y'(\tau)^2] + [z'(\tau)^2]} d\tau = \int_{t_0}^t |\vec{v}(\tau)| d\tau$$
+\[s(t) = \int_{t_0}^t \sqrt{[x'(\tau)^2] + [y'(\tau)^2] + [z'(\tau)^2]} d\tau = \int_{t_0}^t |\vec{v}(\tau)| d\tau\]
 
 If a given curve $\vec{r}(t)$ is already given in terms of some parameter and the arclength is $s(t)$ then we can solve for t as a function of $s: t = t(s)$. Then the curve can be parameterised in terms of s by substituting for $t: \vec{r} = \vec{r} (t(s))$. This identifies a point on the curve with its directed distance along the curve from the base point. 
 
 The speed with which a particle moves along its path is the magnitude of $\vec{v}$:
-$$\frac{ds}{dt} = |\vec{v}(t)|$$
+\[\frac{ds}{dt} = |\vec{v}(t)|\]
 
 Because the velocity vector $\vec{v} = \frac{d\vec{r}}{dt}$ is tangent to $\vec{r}(t)$ so the vector 
-$$\vec{T} = \frac{\vec{v}}{|\vec{v}|}$$
+\[\vec{T} = \frac{\vec{v}}{|\vec{v}|}\]
 is a unit vector tangent to the curve. $\vec{T}$ is a differentiable function of t whenever $\vec{v}$ is a differentiable function of t. 
 
 \subsubsection{Curvature of a curve}
 \emph{Curvature:}
-$$k = \left| \frac{d\vec{T}}{ds}\right| = \frac{1}{|\vec{v}|} \left| \frac{d\vec{T}}{dt} \right|$$
+\[k = \left| \frac{d\vec{T}}{ds}\right| = \frac{1}{|\vec{v}|} \left| \frac{d\vec{T}}{dt} \right|\]
 \begin{center}
     \includegraphics[width=0.5\textwidth]{curvature.png}
 \end{center}
@@ -510,7 +513,7 @@ $$k = \left| \frac{d\vec{T}}{ds}\right| = \frac{1}{|\vec{v}|} \left| \frac{d\vec
 If $|d\vec{T}/ds|$ is large, $\vec{T}$ turns sharply as the particle passes through P and the curvature is large. If the length is small, $\vec{T}$ turns more slowly
 
 \emph{Principal unit normal vector:} a unit vector orthogonal to $\vec{T}$ which points in the direction the curve is turning (towards the concave side of the curve)
-$$\vec{N} = \frac{1}{k} \frac{d\vec{T}}{ds} = \frac{d\vec{T}/dt}{|d\vec{T}/dt|}$$
+\[\vec{N} = \frac{1}{k} \frac{d\vec{T}}{ds} = \frac{d\vec{T}/dt}{|d\vec{T}/dt|}\]
 
 \begin{center}
     \includegraphics[width=0.5\textwidth]{principal normal.png}
@@ -540,9 +543,9 @@ These vectors together form a moving right-handed vector frame called the \emph{
     \vec{a} &= \frac{d\vec{v}}{dt} = \frac{d^2 s}{dt^2} \vec{T} + k \left(\frac{ds}{dt}\right)^2 \vec{N} 
 \end{align*}
 Also, 
-$$|v\times a| = k \left|\frac{ds}{dt}\right|^3 |\vec{B}| = k |\vec{v}|^3$$
+\[|v\times a| = k \left|\frac{ds}{dt}\right|^3 |\vec{B}| = k |\vec{v}|^3\]
 so 
-$$k = \frac{|\vec{v} \times \vec{a}|}{|\vec{v}|^3}$$
+\[k = \frac{|\vec{v} \times \vec{a}|}{|\vec{v}|^3}\]
 
 If the acceleration vector is written as $\vec{a} = a_T \vec{T} + a_N \vec{N}$, then the tangential and normal scalar components of acceleration are 
 \begin{align*}
@@ -554,16 +557,16 @@ Further, acceleration will always line in the plane of $\vec{T}$ and $\vec{N}$. 
 \subsubsection{Torsion}
 \emph{Torsion:} the rate at which the osculating plane turns about $\vec{T}$ as P moves along the curve. In other words, torsion measures how the curve twists
 for $\vec{B} = \vec{T} \times \vec{N}$, torsion is 
-$$\tau = -\frac{d\vec{B}}{ds} \cdot \vec{N}$$
+\[\tau = -\frac{d\vec{B}}{ds} \cdot \vec{N}\]
 
 A space curve is a helix if and only if it has constant nonzero curvature and constant nonzero torsion.
 
 Torsion can also be calculated directly in terms of the parameters
-$$\tau = \frac{\begin{vmatrix}
+\[\tau = \frac{\begin{vmatrix}
     \dot{x} & \dot{y} & \dot{z}\\
     \ddot{x} & \ddot{y} & \ddot{z}\\
     \dddot{x} & \dddot{y} & \dddot{z}\\
-\end{vmatrix}}{|\vec{v} \times \vec{a}|^2} \quad (\text{if}\;\,\vec{v} \times \vec{a} \neq \vec{0})$$
+\end{vmatrix}}{|\vec{v} \times \vec{a}|^2} \quad (\text{if}\;\,\vec{v} \times \vec{a} \neq \vec{0})\]
 
 \subsubsection{Motion in polar coordinates}
 When a particle moves along a curve in the polar plane, we express its position, velocity, and acceleration in terms of the moving unit vectors
@@ -573,11 +576,13 @@ When a particle moves along a curve in the polar plane, we express its position,
 \end{align*}
 
 Then,
-\begin{center}
-    Position: $\quad \vec{r} = r \vec{u}_r + z \hat{k}$\\
-    Velocity: $\quad \vec{v} = \dot{r} \vec{u}_r + r \dot{\theta} \vec{u}_\theta + \dot{z} \hat{k}$\\
-    Acceleration: $\quad \vec{a} = (\ddot{r} - r \dot{\theta}^2) \vec{u}_r + (r\ddot{\theta} + 2\dot{r} \ddot{\theta}) \vec{u}_\theta + \ddot{z} \hat{k}$\\
-\end{center}
+Position:
+\begin{align*}
+    \vec{r} &= r \vec{u}_r + z \hat{k}\\
+    \vec{v} &= \dot{r} \vec{u}_r + r \dot{\theta} \vec{u}_\theta + \dot{z} \hat{k}\\
+    \vec{a} &= (\ddot{r} - r \dot{\theta}^2) \vec{u}_r + (r\ddot{\theta} + 2\dot{r} \ddot{\theta}) \vec{u}_\theta + \ddot{z} \hat{k}
+\end{align*}
+
 This forms a right handed frame where
 \begin{align*}
     \vec{u}_r \times \vec{u}_\theta &= \hat{k}\\
@@ -586,19 +591,19 @@ This forms a right handed frame where
 \end{align*}
 
 \emph{Newton's law of universal gravitation:}
-$$\vec{F} = -\frac{GmM}{|\vec{r}|^2} \frac{\vec{r}}{|\vec{r}|}$$
+\[\vec{F} = -\frac{GmM}{|\vec{r}|^2} \frac{\vec{r}}{|\vec{r}|}\]
 where $\vec{r}$ is the radius vector from the centre of a sun of mass M to the centre of a planet of mass m.
 
 \emph{Kepler's Laws:}
 \begin{enumerate}
-    \item A planet's path is an ellupse with the sun at one focus. The eccentricity is 
-    $$e = \frac{r_0 v_0^2}{GM} - 1$$
+    \item A planet's path is an ellipse with the sun at one focus. The eccentricity is 
+    \[e = \frac{r_0 v_0^2}{GM} - 1\]
     and the polar equation is 
-    $$r = \frac{(1+e)r_0}{1 + e\cos \theta}$$
+    \[r = \frac{(1+e)r_0}{1 + e\cos \theta}\]
     \item The radius vector from the sun to a planet sweeps out equal areas in equal times. If the initial line is $\theta = 0$, the direction $\vec{r}$ when $|\vec{r}| = r$ is a minimum value. Then, 
-    $$\dot{r}\big|_{t=0} = \frac{dr}{dt}\bigg|_{t=0} = 0, \quad v_0 = |\vec{v}|_{t=0} = [r \dot{\theta}]_{t=0}$$
+    \[\dot{r}\big|_{t=0} = \frac{dr}{dt}\bigg|_{t=0} = 0, \quad v_0 = |\vec{v}|_{t=0} = [r \dot{\theta}]_{t=0}\]
     \item The orbital period and the orbit's semimajor axis a are related by 
-    $$\frac{T^2}{a^3} = \frac{4\pi^2}{GM}$$ 
+    \[\frac{T^2}{a^3} = \frac{4\pi^2}{GM}\]
     
 \end{enumerate}
 %%% ------------------------------------------------------------------------------------- %%%
@@ -607,7 +612,86 @@ where $\vec{r}$ is the radius vector from the centre of a sun of mass M to the c
 \pagebreak
 \section{Module 2: Partial Derivatives and Applications}
 \subsection{WEEK 4: Calculus of multivariable functions (Readings 14.1-14.4)}
+\emph{Real-valued function:} a rule that assigns a single, unique real number $w = f(x_1, x_2, ..., x_n)$ to each element in a domain $D$ (a set of n-tuples of real numbers). The set of w-values is the range. 
 
+In choosing the domain, we largely exclude inputs which lead to complex numbers or division by zero. The domain is assumed to be the largest set for which the defining rule generates real numbers, unless the domain is otherwise specified explicitly.
+
+\emph{Interior point:} a point $(x_0, y_0)$ in a region R if it is the center of a disk of positive radius that lies entirely in R
+
+\emph{Boundary point:} a point of a region R if every disk centered at $(x_0, y_0)$ contains points that lie outside of R as well as points that lie in R
+
+A region is \emph{open} if it consists is entirely of interior points. The region is \emph{closed} if it contains all its boundary points
+A region is \emph{bounded} if it lies inside a disk of finite radius. It is \emph{unbounded} otherwise
+
+\emph{Level curve:} the set of points where a function $f(x, y)$ has a constant value. For three variables, the analog set of points for which $f(x, y, z) = c$ is the \emph{level surface}
+
+\emph{Graph:} the set of all points $(x, y, f(x, y))$ in space for (x, y) in the domain of f; also called the \emph{surface} $z = f(x, y)$
+
+\subsubsection{Limits}
+A function $f(x, y)$ approaches the limit L as (x, y) approaches $(x_0, y_0)$
+\[ \lim_{(x, y) \to (x_0, y_0)} f(x,y) = L\]
+if $\forall \varepsilon > 0, \forall (x, y) \in D: \quad \exists \delta > 0$ such that 
+\[ |f(x,y) - L| < \varepsilon \quad \text{when} \quad 0 < \sqrt{(x - x_0)^2 + (y - y_0)^2} < \varepsilon\]
+
+\includegraphics[width= \textwidth]{limit properties.png}
+
+\subsubsection{Continuity}
+A function f(x, y) is continuous at $(x_0, y_0)$ if 
+\begin{enumerate}
+    \item f is defined at $(x_0, y_0)$
+    \item $\lim_{(x, y) \to (x_0, y_0)} f(x,y)$ exists
+    \item $\lim_{(x, y) \to (x_0, y_0)} f(x,y) = f(x_0, y_0)$
+\end{enumerate}
+The function is continuous if it is continuous at every point of its domain
+
+Algebraic combinations of continuous function are continuous at every point at which all the functions involved are defined
+
+\emph{Two-Path test for Nonexistence of a limit:}
+If a function has different limits along two different paths in the domain of f as (x, y) approaches $(x_0, y_0$, then the limit does not exist
+
+Note: having the same limit along all straight lines approaching $(x_0, y_0)$ does not imply that a limit exists at $(x_0, y_0)$
+
+\emph{Continuity of compositions:} If f is continuous at $(x_0, y_0)$ and g is a single-variable function continuous at $f(x_0, y_0)$ then the composition $h = g \circ f$ defined by $h(x, y) = g(f(x, y))$ is continuous at $(x_0, y_0)$
+
+\emph{Extreme Value Theorem of Continuous functions on closed, bounded sets:} a function that is continuous on a closed, bounded set R in the plane takes an absolute maximum and an absolute minimum at some points in R. 
+
+\subsubsection{Partial derivatives}
+\[\frac{\partial f}{\partial x} \bigg|_{(x_0, y_0)} = \lim_{h \to 0} \frac{f(x_0 + h, y_0) - f(x_0, y_0)}{h} = \frac{d}{dx} f(x_0, y_0)\big|_{x=x_0}\]
+
+When we do not specify a point at which to evaluate the partial, the partial derivative becomes a function whose domain is the set of points where the partial derivative exists.
+
+$\frac{\partial f}{\partial x} \big|_{(x_0, y_0)}$ is the slope of the curve $z = f(x, y_0)$ at the point $P(x_0, y_0, f(x_0, y_0))$ in the plane $y = y_0$ which is the tangent line to that point. 
+
+We can say that $\frac{\partial f}{\partial x}$ is the "rate of change of f with respect to x when y is held fixed. This idea can be generalised to all dimensions. 
+
+For differentiable functions, the plane defined by $\frac{\partial f}{\partial y}$ and $\frac{\partial f}{\partial x}$ defines a tangent plane to the surface at a particular point
+
+Note: a function can have partial derivatives with respect to both x and y at a point without the function being continuous there. The function is continuous iff the partials exist and are continuous throughout a disk centered at $(x_0, y_0)$
+
+\subsubsection{Second partials}
+\begin{align*}
+    \frac{\partial^2 f}{\partial x^2} &= \frac{\partial}{\partial x} \left(\frac{\partial f}{\partial x}\right)\\
+    \frac{\partial^2 f}{\partial x \partial y} &= \frac{\partial}{\partial x} \left(\frac{\partial f}{\partial y}\right)
+\end{align*}
+
+\emph{Mixed Derivative Theorem (Clairaut's Theorem):}
+If f(x, y) and its partial derivatives $f_x, f_y, f_{xy}, f_{yx}$ are defined throughout an open region containing P(a,b) and are all continuous at P(a, b), then 
+\[f_{xy} (a, b) = f_{yx} (a, b)\]
+
+\subsubsection{Differentiability}
+A function $z = f(x, y)$ is differentiable at $(x_0, y_0)$ if $f_x (x_0, y_0)$ and $f_y (x_0, y_0)$ exist and $\Delta z = f(x_0 + \Delta x, y_0 + \Delta y) - f(x_0, y_0)$ satisfies an equation of the form 
+\[\Delta z = f_x (x_0, y_0) \Delta x + f_y (x_0, y_0) \Delta y + \epsilon_1 \Delta x + \epsilon_2 \Delta y\]
+where $\epsilon_1, \epsilon_2 \to 0$ as $\Delta x, \Delta_y \to 0$
+
+A function is differentiable if it is differentiable at every point in its domain and the graph of a differentiable equation is a smooth surface.
+
+\emph{If the partials $f_x$ and $f_y$ are continuous throughout an open region R, then f is differentiable at every point of R. If a function is differentiable at a point, it is continuous at that point.}
+
+\subsubsection{The Chain Rule}
+\[\frac{dw}{dt}(t_0) = \frac{\partial w}{\partial x}(x_0, y_0) \frac{dx}{dt}(t_0) + \frac{\partial w}{\partial y}(x_0, y_0) \frac{dy}{dt}(t_0)\]
+
+\emph{Implicit differentiation:} supposing F(x, y) is differentiable and that $F(x, y) = 0$ defines y as a differentiable function of x, then $\forall F_y \neq 0$:
+\[ \frac{dy}{dx} = -\frac{F_x}{F_y}\]
 %%% ------------------------------------------------------------------------------------- %%%
 \subsection{WEEK 5: Gradients, tangent planes, and extreme values (Readings 14.5-14.7)}
 
