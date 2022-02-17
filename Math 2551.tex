@@ -580,7 +580,7 @@ Position:
 \begin{align*}
     \vec{r} &= r \vec{u}_r + z \hat{k}\\
     \vec{v} &= \dot{r} \vec{u}_r + r \dot{\theta} \vec{u}_\theta + \dot{z} \hat{k}\\
-    \vec{a} &= (\ddot{r} - r \dot{\theta}^2) \vec{u}_r + (r\ddot{\theta} + 2\dot{r} \ddot{\theta}) \vec{u}_\theta + \ddot{z} \hat{k}
+    \vec{a} &= (\ddot{r} - r \dot{\theta}^2) \vec{u}_r + (r\ddot{\theta} + 2\dot{r} \dot{\theta}) \vec{u}_\theta + \ddot{z} \hat{k}
 \end{align*}
 
 This forms a right handed frame where
@@ -688,14 +688,116 @@ A function is differentiable if it is differentiable at every point in its domai
 \emph{If the partials $f_x$ and $f_y$ are continuous throughout an open region R, then f is differentiable at every point of R. If a function is differentiable at a point, it is continuous at that point.}
 
 \subsubsection{The Chain Rule}
-\[\frac{dw}{dt}(t_0) = \frac{\partial w}{\partial x}(x_0, y_0) \frac{dx}{dt}(t_0) + \frac{\partial w}{\partial y}(x_0, y_0) \frac{dy}{dt}(t_0)\]
+\[\frac{dw}{dt} = \frac{\partial w}{\partial x} \frac{dx}{dt} + \frac{\partial w}{\partial y}\frac{dy}{dt} \bigg|_{x= x_0,\; t=t_0}\]
 
 \emph{Implicit differentiation:} supposing F(x, y) is differentiable and that $F(x, y) = 0$ defines y as a differentiable function of x, then $\forall F_y \neq 0$:
 \[ \frac{dy}{dx} = -\frac{F_x}{F_y}\]
 %%% ------------------------------------------------------------------------------------- %%%
 \subsection{WEEK 5: Gradients, tangent planes, and extreme values (Readings 14.5-14.7)}
+Suppose $f(x,y)$ is defined on R in the xy-plane, that $P_0(x_0, y_0)$ is a point in R, and that $\vec{u} = u_1 \hat{i} + u_2 \hat{j}$. Then:
+\[ x = x_0 + su_1, \quad y = y_0 + su_2\]
+parameterise the line through $P_0$ parallel to $\vec{u}$. If the parameter measures arc length from $P_0$ in the direction of $\vec{u}$, $df/ds$ at $P_0$gives the rate of change of f at a point in a direction
 
-%%% ------------------------------------------------------------------------------------- %%%
+\subsubsection{The Directional Derivative}
+\emph{Directional Derivative:}
+the derivative at a point in the direction of a unit vector 
+\[ D_{\hat{u}} f(P_0) = D_{\hat{u}} f |_{P_0} = \left(\frac{df}{ds}
+\right)_{\hat{u}, P_0} = \lim_{s \to 0} \frac{f(x_0 + su_1, y_0 +su_2)-f(x_0, y_0)}{s} \]
+
+If $z = f(x, y)$ is a surface, the vertical plane that passes through a point $P(x_0, y_0, z_0)$ and $_0 (x_0, y_0)$ parallel to $\hat{u}$ intersects S in a curve C, then the directional derivative towards $\hat{u}$ is the slope of the tangent to C at P in the right handed $\hat{u}\hat{k}$-system
+
+\emph{Gradient vector:} 
+\[\nabla f = \frac{\partial f}{\partial x} \hat{i} + \frac{\partial f}{\partial y} \hat{j}\]
+
+Then:
+\[\left(\frac{df}{ds}\right)_{\hat{u}, P_0} = \nabla f |_{P_0} \cdot \hat{u}\ = |\nabla f| \cos \theta \]
+
+Properties of the directional derivative:
+\begin{enumerate}
+    \item f increaes most rapidly in the direction of the gradient vector ($D_{\hat{u}} f = |\nabla f|$)
+    \item f decreases most rapidly in the direction of $-\nabla f$ (where $D_{\hat{u}} = -|\nabla f|$)
+    \item Any direction $\hat{u}$ orthogonal to a gradient $\nabla f \neq 0$ is a direction of no change in f 
+\end{enumerate}
+
+At every point $(x_0, y_0)$ in the domain of a differentiable function f(x, y), the gradient of f is normal to the level curve through $(x_0, y_0)$. Thus, the tangent lines to level curves are the lines normal to the gradients.
+
+Tangent line to a level curve:
+\[f_x(x_0, y_0) (x- x_0) + f_y (x_0, y_0)(y-y_0) = 0\]
+
+Algebra Rules for Gradients:
+\begin{enumerate}
+    \item $\nabla(f +g) = \nabla f + \nabla g$
+    \item $\nabla(f - g) = \nabla f - \nabla g$
+    \item $\nabla (kf) = k\nabla f$
+    \item $\nabla (fg) = f\nabla g + g \nabla f$
+    \item $\nabla \left(\frac{f}{g}\right) = \frac{g\nabla f - f\nabla g}{g^2}$
+\end{enumerate}
+
+Derivative along a path:
+For $\vec{r}(t) = x(t) \hat{i} + y(t) \hat{j} + z(t) \hat{k}$, 
+\[ \frac{df}{dt} = \frac{\partial f}{\partial x} \frac{dx}{dt} + \frac{\partial f}{\partial y} \frac{dy}{dt} + \frac{\partial f}{\partial z} \frac{dz}{dt} = \nabla f(\vec{r}(t)) \cdot \vec{r}'(t)\]
+
+\emph{Tangent plane:} the plane through a point $P_0$ normal to $\nabla f|_{P_0}$ for a differentiable level surgace
+
+\emph{Normal line:} the line through $P_0$ parallel to $\nabla f|_{P_0}$
+For a point $P_0(x_0, y_0, z_0)$:
+\[ x = x_0 + f_x(P_0)t, \quad y = y_0 + f_y (P_0)t, \quad z = z_0 + f_z(P_0)t\]
+
+Plane tangent to a surface $z = f(x, y)$ at $(x_0, y_0, f(x_0, y_0))$:
+\[f_x (x_0, y_0)(x - x_0) + f_y(x_0, y_0)(y- y_0) - (z - z_0) = 0\]
+
+Estimating the change in f in a direction $\hat{u}$:
+\[df = (\nabla f|_{P_0} \cdot \hat{u}) ds\]
+
+\subsubsection{Linearisation}
+\emph{Linearisation of $f(x, y)$:}
+\[f(x,y) \approx L(x,y) = f(x_0, y_0)+f_x(x_0,y_0)(x-x_0) + f_y(x_0, y_0)(y - y_0)\]
+
+Error in the standard linear approximation:
+If f has continuous first and second partial derivatives throughout an open set contianing a rectangle R centered at $(x_0, y_0)$ and if M is any upper bound for $|f_xx|, |f_yy|, |f_xy|$ on R, then 
+\[|E(x,y)| \leq \frac{1}{2}M\left(|x-x_0| + |y - y_0|\right)^2 \]
+
+\emph{The total differential of f:}
+The change in the linearisation of f moving from $(x_0, y_0)$ to $(x_0 + dx, y_0 + dy)$:
+\[ df = f_x(x_0, y_0) dx + f_y (x_0, y_0) dy \]
+
+\subsubsection{Extreme Values}
+Extreme values on a closed interval can happen only at the boundary points or at interior domain points where both first partials are zero or at least one partial does not exist. 
+
+\emph{Local maximum:} a value of f if $f(a, b) \geq f(x, y)$ for all domain points (x, y) in an open disk centred at (a, b)
+
+\emph{Local minimum:} a value of f if $f(a, b) \leq f(x, y)$ for all domain points (x, y) in an open disk centred at (a, b)
+
+\emph{Critical point:} an interior point of the domain of a function $f(x, y)$ where both $f_x$ and $f_y$ are zero or where at least one of $f_x$ and $f_y$ does not exist
+
+\emph{Saddle point:} a critical point where in every open disk centred at (a, b) there are domain points (x, y) where $f(x,y) > f(a,b)$ and where $f(x,y) < f(a,b)$
+
+Second Derivative test:
+For f(x, y) with continuous second partial derivatives with $f_x(a, b), f_y(a, b) = 0$. Then:
+\begin{enumerate}
+    \item f has a local max if $f_{xx} < 0$ and $f_{xx} f_{yy} - f_{xy}^2 > 0$
+    \item f has a local min if $f_{xx} > 0$ and $f_{xx} f_{yy} - f_{xy}^2 > 0$
+    \item f has a saddle point if $f_{xx} f_{yy} - f_{xy}^2 < 0$
+    \item the test is inconclusive if $f_{xx} f_{yy} - f_{xy}^2 = 0$
+\end{enumerate}
+
+\emph{Hessian (discriminant):} the expression
+\[ f_{xx} f_{yy} - f_{xy}^2 = \begin{vmatrix}
+    f_{xx} & f_{xy}\\
+    f_{xy} & f_{yy} 
+\end{vmatrix}\]
+
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{saddles.png}
+\end{center}
+
+Finding absolute extrema on closed regions:
+\begin{enumerate}
+    \item List and evaluate the critical points
+    \item List and evaluate the boundary points
+    \item Identify the extrema from those list
+\end{enumerate}
+%%%------------------------------------------------------------------------------------- %%%
 \subsection{WEEK 6: Lagrange multipliers and Taylor's formula (Readings 14.8-14.10)}
 
 %%% ------------------------------------------------------------------------------------- %%%
