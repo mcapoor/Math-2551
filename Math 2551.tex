@@ -851,10 +851,229 @@ Notation:
 \pagebreak
 \section{Module 3: Integrals}
 \subsection{WEEK 7: Double integrals and area (Readings 15.1-15.3)}
+\emph{Double integral:} the unique number $I$ that is between the lower and upper Riemann sums for all partitions in a region
+\begin{itemize}
+    \item Lower sum: $L_f(\mathcal{P}) = \sum \limits_{i=1}^m \sum \limits_{j = 1}^n \Delta x_i \Delta y_i m_{ij}$, for $\mathcal{P}$ a partition of $\mathcal{R}$ and $m_{ij}$ the minimum of $f$ on the $i, j$ sub-rectangle of $\mathcal{R}_{ij}$
+    \item Lower sum: $L_f(\mathcal{P}) = \sum\limits_{i=1}^m \sum\limits_{j = 1}^n \Delta x_i \Delta y_i m_{ij}$, where $M_{ij}$ is the max of f on the sub-rectangle $\mathcal{R}_{ij}$\\
+\end{itemize}
 
+Double integral notation:
+\[I = \int \int_\mathcal{R} f(x, y) dx dy = \int \int_\mathcal{R} f(x, y) dA\]
+
+\emph{Fubini's Theorem (First Form):}
+If $f(x,y)$ is continuous throughout the rectangular reguion $R: a \leq x \leq b, c \leq y \leq d$, then 
+\[\int \int_R f(x,y) dA = \int_c^d \int_a^b f(x,y) dx dy = \int_a^b \int_c^d f(x,y) dy dx\]
+
+Example: Solve $\int_0^3 \int_{-2}^0 (x^2 y - 2xy) dy dx$
+
+Solution:
+\begin{align*}
+    \int_0^3 \int_{-2}^0 (x^2 - y - 2xy) dy dx &= \int_0^3 \left[\frac{1}{2}x^2 y^2 - xy^2 \right]_{-2}^0 dx \\
+    &= \int_0^3 [0 - 2x^2 + 4x] dx \\
+    &= \left[-\frac{2}{3} x^3 +2x^2 \right]_0^3 = -18 + 18 = 0
+\end{align*}
+
+\emph{Volume:} if $f(x,y)$ is a positive function over a rectangular region R in the xy-plane, the volume of the solid region over the xy-plane bounded below by R and above by $f(x,y)$ is given by:
+\[V = \int \int_R f(x,y) dA\]
+
+\emph{Fubini's theorem (Stronger form:)} Let $f(x, y)$ be continuous on a region R. 
+\begin{enumerate}
+    \item If R is defined by $a \leq x \leq b, g_1(x) \leq y \leq g_2(x)$ with $g_1$ and $g_2$ continuous on $[a,b]$, then 
+    \[\int \int_R f(x,y) dA = \int_a^b \int_{g_1(x)}^{g_2(x)} f(x, y) dy dx\]
+    \item If If R is defined by $c \leq y \leq c, h_1(y) \leq x \leq h_2(y)$ with $h_1$ and $h_2$ continuous on $[c, d]$, then 
+    \[\int \int_R f(x,y) dA = \int_c^d \int_{h_1(x)}^{h_2(x)} f(x, y) dx dy\]
+\end{enumerate}
+
+Limits of integration for general regions:
+\begin{enumerate}
+    \item Using vertical cross sections:
+    \[\int \int_R f(x,y) dA = \int_{x=a}^{x=b} \int_{y=g(x)}^{y=h(x)} f(x, y) dy dx\]
+    \item Using horizontal cross sections:
+    \[\int \int_R f(x,y) dA = \int_{y=c}^{y=d} \int_{x=g(y)}^{x=h(y)} f(x, y) dx dy\]
+\end{enumerate}
+\pagebreak
+Example: Evaluate $\int\limits_0^2 \int\limits_{x^2}^4 2x \cos(y^2) dy dx$ by changing the order of integration
+
+Solution:
+
+\begin{tabular}{l r}
+    \parbox{8cm}{\includegraphics[width=0.5\textwidth]{bounds.png}}
+    &
+    \parbox{5cm}{
+        \begin{align*}
+            &\int\limits_0^2 \int\limits_{x^2}^4 2x \cos (y^2) dy dx = \int\limits_0^4 \int\limits_0^{\sqrt{y}} 2x \cos (y^2) dx dy\\
+            &= \int\limits_0^4 \left[x^2 \cos(y^2)\right]_0^{\sqrt{y}} = \int\limits_0^4 y \cos(y^2) dy\\
+            &= \int\limits_0^4 \left[x^2 \cos(y^2)\right]_0^{\sqrt{y}}= \int\limits_0^4 y \cos(y^2) dy\\
+            &= \int\limits_0^4 \left[x^2 \cos(y^2)\right]_0^{\sqrt{y}}= \int\limits_0^4 y \cos(y^2) dy\\
+            &= \frac{1}{2} \sin(y^2) \big|_0^4 = \frac{1}{2} \sin 16
+        \end{align*}
+    }
+\end{tabular}
+
+Properties of Double Integrals:
+\begin{enumerate}
+    \item Constant Multiple:
+    \[\int \int_R cf(x,y) dA = c\int \int_R f(x,y) dA\]
+    \item Sum and difference:
+    \[\int \int_R (f(x,y) \pm g(x,y)) dA = \int \int_R f(x,y) dA \pm \int \int_R g(x,y) dA\]
+    \item Domination:
+    \begin{enumerate}
+        \item $\int \int_R f(x,y) dA \geq 0 \quad \text{if } f(x,y) \geq 0 \in R$
+        \item $\int \int_R f(x,y) dA \geq \int \int_R g(x,y) dA \quad \text{if } f(x,y) \geq g(x,y) \in R$
+    \end{enumerate}
+    \item Additivity: If R is the union of two nonoverlapping regions $R_1$ and $R_2$,
+    \item \[\int \int_R f(x,y) dA = \int \int_{R_1} f(x,y) dA + \int \int_{R_2} f(x,y) dA\]
+\end{enumerate}
+
+\emph{Area:} the area of a closed, bounded region R is 
+\[A = \int \int_R dA\]
+
+\emph{Average value:}
+\[\frac{1}{\text{area of R}} \int \int_R f(x,y) dA\]
 %%% ------------------------------------------------------------------------------------- %%%
 \subsection{WEEK 8: Double and tripe integrals (Readings 15.4-15.6)}
+\emph{Polar coordinates:} an alternative to rectangular coordinate system. Uses two parameters $\theta$, an angle, and $r$, a radius. Measurements begin from the polar axis to draw the angle in the counterclockwise direction if $\theta < 0$ (clockwise otherwise,), then go a distance $r$ along the ray $theta$ (or along the ray $\theta + \pi$ if $r < 0$).
 
+Polar formulas:
+\begin{align*}
+    x &= r\cos \theta\\
+    y &= r \sin \theta\\
+    x^2 + y^2 &= r^2\\
+    \theta &= \arctan(\frac{y}{x})
+\end{align*}
+
+\emph{Area of a sector of a curve:} $\frac{\theta}{2\pi r} \cdot \pi r^2 = \frac{1}{2} r^2 \theta$
+
+Area under a curve in polar coordinates comes from summing infinite sectors rather than rectangles. 
+
+\emph{Area of polar regions:} 
+\[A = \int \int_R r dr d\theta\]
+
+Example: Find a formula for the area of a circle with radius $a$. 
+Solution:
+\[0 \leq r \leq a, \; 0 \leq \theta \leq 2 \pi\]
+\begin{align*}
+    A &= \int_0^{2\pi} \int_0^a r dr d\theta = \int_0^{2\pi} \frac{1}{2}a^2 d\theta\\
+    &= \frac{1}{2}a^2 \theta \big|_0^{2\pi} = \pi a^2 
+\end{align*}
+
+\subsubsection{Double integration with Polar coordinates:}
+Given $F = F(r, \theta)$ is continuous on $\Gamma: a \leq r \leq b, \alpha \leq \theta \leq \beta$ we have
+\[\int \int_\Gamma F(r, \theta) r dr d\theta = \int_\alpha^\beta \int_a^b F(r, \theta) r dr d\theta\]
+And the double integral of $F(r, \theta)$ over the polar region $\Omega: \alpha \leq \theta \leq \beta, \rho_1(\theta) \leq r \leq \rho_2(\theta)$ is 
+\[\int \int_\Omega F(r, \theta) r dr d\theta = \int_\alpha^\beta \int_{\rho_1(\theta)}^{\rho_2(\theta)} F(r,\theta) r dr d\theta \]
+
+\emph{Volume:} if $F(r, \theta) \geq 0$ over a region R, the volume of the solid with R as base, bounded above by F is 
+\[V = \int \int_R F(r, \theta) r dr d\theta \]
+
+\subsubsection{Triple integrals}
+Integration over a "Box": Given $f = f(x,y,z)$ is continuous on the rectangular box B, where $B: a_1\leq x \leq b_1, a_2 \leq y \leq b_2, a_3 \leq z \leq b_3$
+\[\int \int \int_B f(x,y,z) dV = \int_{a_3}^{b_3} \int_{a_2}^{b_2} \int_{a_1}^{b_1} f(x, y, z) dx dy dz\]
+
+\emph{Volume:} the volume of a closed, bounded region D in space is 
+\[V = \int \int \int_D dV\]
+
+\emph{Average Value of F over a region D:} 
+\[\frac{1}{\text{volume of D}} \int \int \int_D F dV\]
+
+\subsubsection{Applications of Iterated Integrals}
+For three-dimensional solids
+\begin{itemize}
+    \item Mass:
+    \[M = \int \int \int_D \delta dV\]
+    where $\delta = \delta(x,y,z)$, the density function and $D$ is the solid 
+    \item First moments about the coordinate planes:
+    \begin{align*}
+        M_{yz} &= \int \int \int_D x\delta vD\\
+        M_{xz} &= \int \int \int_D y\delta dV\\
+        M_{xy} &= \int \int \int_D z \delta dV
+    \end{align*}
+    \item Center of mass:
+    \begin{align*}
+        \bar{x} &= \frac{M_{yz}}{M}\\
+        \bar{y} &= \frac{M_{xz}}{M}\\
+        \bar{z} &= \frac{M_{xy}}{M}
+    \end{align*}
+    \item Moments of Inertia:
+    \begin{align*}
+        I_x &= \int \int \int (y^2 + z^2) \delta dV\\
+        I_y &= \int \int \int (x^2 + z^2) \delta dV\\
+        I_z &= \int \int \int (x^2 + y^2) \delta dV\\
+        I_L &= \int \int \int r^2 (x,y,z) \delta dV\\
+    \end{align*}
+\end{itemize}
+
+For two-dimensional plates:
+\begin{itemize}
+    \item Mass:
+    \[M = \int \int_R \delta dA\]
+    where $\delta = \delta(x,y,z)$, the density function and $D$ is the solid 
+    \item First moments about the coordinate planes:
+    \begin{align*}
+        M_y &= \int \int_R x\delta dA\\
+        M_x &= \int \int_R y \delta dA
+    \end{align*}
+    \item Center of mass:
+    \begin{align*}
+        \bar{x} &= \frac{M_y}{M}\\
+        \bar{y} &= \frac{M_x}{M}\\
+    \end{align*}
+    \item Moments of Inertia:
+    \begin{align*}
+        I_x &= \int \int y^2 \delta dA\\
+        I_y &= \int \int x^2 \delta dA\\
+        I_L &= \int \int r^2(x,y) \delta dA\\
+        I_O &= \int \int (x^2 + y^2) \delta \; dA = I_x + I_y
+    \end{align*}
+\end{itemize}
+
+\emph{Centroid:} the center of mass for an object with constant density. To find the centroid, use $\delta = 1$ 
+
+Example: Find the centroid of the region between the x-axis, $y=\sin (x)$ for $0\leq x \leq \pi$
+
+Solution:
+
+\begin{align*}
+    M &= \int_0^\pi \int_0^{\sin x} dy dx = \int_0^\pi \sin x \; dx = \left[-\cos x\right]_0^\pi = 2\\
+    M_x &= \int_0^\pi \int_0^{\sin x} y\; dy dx = \int_0^\pi \frac{1}{2} \sin^2 (x) dx\\
+    &= \int_0^\pi \frac{1}{4} (1 - \cos(2x)) \; dx = \frac{1}{4} \left[x - \frac{1}{2} \sin (2x)\right]_0^\pi = \frac{\pi}{4}\\
+    M_y &= \int_0^\pi \int_0^{\sin x} x dy dx = \int_0^\pi x \sin x dx\\
+    &= \left[-x \cos x + \sin x\right] = \pi
+    \bar{x} = \frac{\pi}{2}
+    \bar{y} = \frac{M_x}{M} = \frac{\pi}{8}
+\end{align*}
+
+\emph{Joint probability density function:} a function that satisfies three conditions
+\begin{enumerate}
+    \item $f(x,y) \geq 0$
+    \item $\int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty f(x,y) \; dx dy = 1$
+    \item $P((X, Y) \in R) = \int \int_R f(x,y) \; dx dy$
+\end{enumerate}
+
+\emph{Mean and expected value:} when X and Y have joint probability density function f,
+\begin{align*}
+    \mu_X &= \int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty x f(x,y) \; dx dy\\
+    \mu_Y &= \int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty y f(x,y) \; dx dy
+\end{align*}
+
+Example: verify that f gives a joint probability density function. Then find the expected values $\mu_X$ and $\mu_Y$
+\[f(x,y) = \begin{cases}
+    6x^2 \quad &0 \leq x \leq 1,\; 0\leq y \leq 1\\
+    0 \quad &\text{otherwise}
+\end{cases}
+\]
+
+Solution:
+\begin{enumerate}
+    \item f is positive on $(x,y) \in [0, 1]$ and 0 elsewhere so $f(x,y) \geq 0$
+    \item We need to check $\int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty f(x,y) \; dx dy = 1$ but we only need to evaluate it on the positive region:
+    \[\int_0^1 \int_0^1 6x^2 y \; dx dy= \int_0^1 \left[2x^3 y\right]_0^1 dy = \int_0^1 2y \; dy=y^2 \big|_0^1 = 1\]
+\end{enumerate}
+So the function is a joint probability function and the expected values are
+\begin{align*}
+    \mu_X &= \int_0^1 \int_0^1 6x^3 y \; dx dy = \int_0^1 \frac{3}{2} y \; dy = \frac{3}{4} y^2 \big|_0^1 = \frac{3}{4}\\
+    \mu_Y &= \int_0^1 \int_0^1 6x^2 y^2 \; dx dy = \int_0^1 \left[2x^3 y^2\right]_0^1 dy = \int_0^1 2y^2 dy = \left[\frac{2}{3} y^3\right]_0 ^1 = \frac{2}{3}
+\end{align*}
 %%% ------------------------------------------------------------------------------------- %%%
 \subsection{WEEK 9: Triple integrals and applications (Readings 15.7-15.8)}
 
