@@ -861,7 +861,7 @@ Double integral notation:
 \[I = \int \int_\mathcal{R} f(x, y) dx dy = \int \int_\mathcal{R} f(x, y) dA\]
 
 \emph{Fubini's Theorem (First Form):}
-If $f(x,y)$ is continuous throughout the rectangular reguion $R: a \leq x \leq b, c \leq y \leq d$, then 
+If $f(x,y)$ is continuous throughout the rectangular region $R: a \leq x \leq b, c \leq y \leq d$, then 
 \[\int \int_R f(x,y) dA = \int_c^d \int_a^b f(x,y) dx dy = \int_a^b \int_c^d f(x,y) dy dx\]
 
 Example: Solve $\int_0^3 \int_{-2}^0 (x^2 y - 2xy) dy dx$
@@ -1076,17 +1076,553 @@ So the function is a joint probability function and the expected values are
 \end{align*}
 %%% ------------------------------------------------------------------------------------- %%%
 \subsection{WEEK 9: Triple integrals and applications (Readings 15.7-15.8)}
+\emph{Cyclindrical coordinates:} represent a point P in space by ordered triples $(r, \theta, z), r \geq 0$
+\begin{enumerate}
+    \item $r$ and $\theta$ are polar coordinates for the vertical projection of P on the xy-plane
+    \item z is the rectangular vertical coordinate
+\end{enumerate}
 
+Equations:
+\begin{align*}
+    x &= r\cos\theta\\
+    y&= r\sin \theta\\
+    z &= z\\
+    r^2 &= x^2 + y^2\\
+    \tan \theta &= \frac{y}{x}
+\end{align*}
+
+In cyclindrical coordinates, $r=a$ describes a cylinder about the z-axis (which is given by $r=0$). The equation $\theta = \theta_0$ describes the plane that contains the z-axis and makes an angle $\theta_0$ with the positive x-axis. 
+
+\emph{Norm:} the largest of the values $\Delta r_k, \Delta \theta_k, \Delta z_k$ among all the cylindrical wedges.
+
+\[\int \int_D \int f \; dV = \int \int_D \int f \; \; dz \, r \, dr\, d\theta \]
+
+To integrate:
+\begin{enumerate}
+    \item Sketch the function
+    \item Find the z limits
+    \item Find the r limits
+    \item Find the theta limits
+    \item Integrate
+\end{enumerate}
+
+Example: Find the centroid ($\delta = 1$) of the solid enclosed by the cylinder $x^2 + y^2 = 4$ bounded above by $z= x^2 + y^2$ and below by the xy-plane. 
+
+Solution: 
+\begin{center}
+    \includegraphics{centroid.png}
+\end{center}
+
+Z-limits: $0 \leq z \leq r^2$
+R-limits: $0 \leq r \leq 2$
+$\theta$-limits: $0 \leq \theta \leq 2\pi$
+
+\begin{align*}
+    M_{xy} &= \int_0^{2\pi} \int_0^2 \int_0^{r^2} z \; \; dz \, r \, dr \, d\theta = \int_0^{2\pi} \int_0^2 \left[\frac{z^2}{2}\right]_0^{r^2} r \; dr \, d\theta\\
+    &= \int_0^{2\pi} \int_0^{2\pi} \frac{r^5}{2} \; dr \, d\theta = \int_0^{2\pi} \left[\frac{r^6}{12}\right]_0^2 \; d\theta = \int_0^{2\pi} \frac{16}{3} d\theta = \frac{32\pi}{3}\\
+\end{align*}
+\begin{align*}
+    M = \int_0^{2\pi} \int_0^2 \int_0^{r^2} \; \; dz \, r \, dr \, d\theta = \int_0^{2\pi} \int_0^2 \left[z\right]_0^{r^2} r \; dr \, d\theta\\
+    &= \int_0^{2\pi} \int_0^{2\pi} r^3 \; dr \, d\theta = \int_0^{2\pi} \left[\frac{r^4}{4}\right]_0^2 \; d\theta = \int_0^{2\pi} 4 \; d\theta = 8\pi
+\end{align*}
+\[\bar{z} = \frac{M_{xy}}{M} = \frac{32\pi / 3}{8\pi} = \frac{4}{3}\]
+
+Centroid: $(0, 0, 4/3)$
+
+\subsubsection{Spherical Coordinates}
+\emph{Spherical coordinates:} represent a point in space by ordered triples $(\rho, \phi, \theta)$ where 
+\begin{enumerate}
+    \item $\rho$ is the distance from P to the origin
+    \item $\phi$ is the angle $\vec{OP}$ makes with the positive z-axis ($0 \leq \phi \leq \pi$)
+    \item $\theta$ is the angle from cylindrical coordinates
+\end{enumerate}
+
+$\rho = a$ describes a sphere of radius a centred at the origin, $\phi = \phi_0$ describes a single cone with vertex at the origin and axis along the z-axis, $\theta = \theta_0$ describes the half-plane that contains the z-axis and makes an angle $\theta_0$ with the positive x-axis
+
+Equations:
+\begin{align}
+    r &= \rho \sin \phi\\
+    x &= r\cos \theta = \rho \sin \phi \cos \theta\\
+    y &= r\sin \theta = \rho \sin \phi \sin \theta\\
+    z &= \rho \cos \phi\\
+    \rho = \sqrt{x^2 + y^2 + z^2}  = \sqrt{r^2 + z^2}
+\end{align}
+
+Example: Find a spherical coordinate equation for $x^2 + y^2 + (z-1)^2 =1$
+
+Solution:
+\begin{align*}
+    x^2 + y^2 + (z-1)^2 &= 1\\
+    \rho^2 \sin^2 \phi \cos^2 \theta + \rho^2 \sin^2 \sin^2 \theta + (\rho \cos \phi -1)^2 &= 1\\
+    \rho^2 \sin^2 \phi + \rho^2 \cos^2 \phi - 2\rho \cos \phi + 1 &= 1\\
+    \rho^2 &= 2 \rho \cos \phi\\
+    \rho &= 2 \cos \theta 
+\end{align*}
+
+\[\int \int_D \int f(\rho, \phi, \theta) \; dV = \int \int_D \int f(\rho, \phi, \theta) \rho^2 \sin \phi \; d\rho \, d\phi \, d\theta\]
+
+To solve, we integrate over solids of revolution about the z-axis (where the $\theta$ and $\phi$ limits are constant)
+
+Example: Find the volume of the "ice cream cone" D cut from the solid sphere $\rho \leq 1$ by the cone $\phi = \pi / 3$. 
+
+Solution: 
+\begin{align*}
+    0 \leq \rho \leq 1\\
+    0 \leq \phi \leq \frac{\pi}{3}\\
+    0 \leq \theta \leq 2\pi
+\end{align*}
+\begin{align*}
+    V = \int_0^{2\pi} \int_0^{\pi/3} \int_0^1 \rho^2 \sin \phi \; d\rho \, d\phi\, d\theta = \int_0^{2\pi} \int_0^{\pi/3} \left[\frac{\rho^3}{3}\right]_0^1 \sin \phi \; d\phi d\theta \\
+    &= \int_0^{2\pi} \int_0^{\pi/3} \frac{1}{3} \sin \phi \; d\phi d\theta = \int_0^{2\pi} \left[-\frac{1}{3} \cos \phi\right]_0^{\pi/3} \; d\theta = \int_0^{2\pi} \left(-\frac{1}{6} + \frac{1}{3}\right) d\theta = \frac{\pi}{3} 
+\end{align*}
+
+\subsubsection{Coordinate Conversion Formulas:}
+Cylindrical to rectangular:
+\begin{align*}
+    x &= r\cos \theta\\
+    y&= r\sin \theta\\
+    z &= z
+\end{align*}
+
+Spherical to rectangular:
+\begin{align*}
+    x &= \rho \sin \phi \cos \theta\\
+    y &= \rho \sin \phi \sin \theta\\
+    z &= \rho \cos \theta
+\end{align*}
+
+Spherical to cylindrical:
+\begin{align*}
+    r &= \rho \sin \phi\\
+    z &= \rho \cos \phi\\
+    \theta = \theta
+\end{align*}
+
+Corresponding formulas for dV:
+\begin{align*}
+    dV &= dx \, dy\, dz\\
+    &= dz \, r\, dr\, d\theta\\
+    &= \rho^2 \sin \phi \; d\rho \, d\phi \, d\theta
+\end{align*}
+
+\subsubsection{Substitution}
+\emph{Jacobian determinant:} function for the coordinate transformation $x= g(u,v), y=h(u,v)$ which measures how much the transformation is expanding or contracting the area around a point $(u,v)$
+\[J(u,v) = \begin{vmatrix}
+    \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v}\\
+    \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+\end{vmatrix} = \frac{\partial x}{\partial u} \frac{\partial y}{\partial v} - \frac{\partial y}{\partial u} \frac{\partial x}{\partial v} = \frac{\partial (x,y)}{\partial (u,v)}\]
+
+Substitution for Double Integrals:
+For f(x,y) continuous over the region R, let G be the preimage of R under the transformation $x=g(u,v), y=h(u,v)$ (one-to-one on the interior of G). If the functions g and h have continuous first partial derivatives on G, then
+\[\int \int_R f(x,y) dx dy = \int \int_G f(g(u,v), h(u,v)) \begin{vmatrix}
+    \frac{\partial (x,y)}{\partial(u,v)}
+\end{vmatrix} du\, dv\]
+
+Example: Write the Cartesian integral $\int \int_R f(x,y) dx dy$ as a polar integral. 
+
+Solution:
+With $x=r\cos \theta, y=r\sin \theta$, the Jacobian is 
+\[J(r, \theta) = \begin{vmatrix}
+\cos \theta & -r\sin \theta\\
+\sin \theta & r\cos \theta
+\end{vmatrix} = r(\cos^2 \theta + \sin^2 \theta) = r\]
+Since $r \geq 0$ in polar coordinates, $|J(r, \theta)| = |r| = r$, so 
+\[\int \int_R f(x,y) \; dx\, dy = \int \int_G f(r\cos\theta, r\sin \theta) r \; dr \, d\theta\] 
+
+Substitutions in triple integrals:
+\begin{align*}
+    x &= g(u,v,w)\\
+    y &= g(u,v,w)\\
+    z &= g(u,v,w)
+\end{align*}
+
+Then any function on D in xyz-space is a function 
+\[F(g(u,v,w), h(u,v,w), k(u,v,w)) = H(u, v, w)\]
+on G. If g, h, and k have continuous first partial derivatives, then the integral is 
+\[\int \int_D \int F(x,y,z) \; dx \, dy \, dz = \int \int_G \int H(u, v, w) |J(u, v, w)| \; du\, dv\, dw\]
 %%% ------------------------------------------------------------------------------------- %%%
 %%% ------------------------------------------------------------------------------------- %%%
 %%% ------------------------------------------------------------------------------------- %%%
 \pagebreak
 \section{Module 4: Integrals and Vector Fields}
 \subsection{WEEK 10: Line integrals and vector fields (Readings 16.1-16.3)}
+\emph{Line integral:} The curve equivalent of integrating over a straight line distance.
 
+If f is defined on a curve C given parametrically, then 
+\[\int_C f(x,y,z) \; ds = \lim_{n\to \infty} \sum_{k=1}^n f(x_k, y_k, z_k) \Delta s_k\]
+where s is arc length.
+
+How to evaluate:
+\begin{enumerate}
+    \item Find a smooth parametrisation of C
+    \[\vec{r}(t) = g(t) \hat{i} + h(t) \hat{j} + k(t)\ \hat{k}, \quad a \leq t \leq b\]
+    \item Evaluate the integral as
+    \[\int_C f(x,y,z) \; ds = \int_a^b f(g(t), h(t), k(t)) \left|\vec{v}(t)\right| \; dt\]
+\end{enumerate}
+
+Example: Evaluate $\int_C (x-y+z+1) ds$ where C is the straight-line segment given by $z=t, y=1-t, z=1$ from $(0,1,1)$ to $(1,0,1)$
+
+Solution:
+\[0 \leq t \leq 1\]
+\begin{align*}
+    \vec{r}(t) &= t \hat{i} (1-t) \hat{j} + \hat{k}\\
+    \vec{r}'(t) &= \hat{i} - \hat{j}\\
+    |\vec{r}'(t)| &= \sqrt{2}\\
+\end{align*}
+\[\int_0^1 (t- (1-t) + 1 + 1) \sqrt{2}\; dt = \sqrt{2} \int_0^1 (2t+1) \; dt = 2\sqrt{2}\]
+
+\subsubsection{Applications of line integrals}
+Mass:
+\[M = \int_C \delta(x,y,z) \; ds\]
+for some density $\delta$
+
+First moments:
+\begin{align*}
+    M_{yz} &= \int_C x \delta \; ds\\
+    M_{xz} &= \int_C y \delta \; ds\\
+    M_{xy} &= \int_C z \delta \; ds\\
+\end{align*}
+
+Centroids: 
+\begin{align*}
+    \bar{x} &= M_{yz} / M\\
+    \bar{y} &= M_{xz} / M\\
+    \bar{z} &= M_{xy} / M\\
+\end{align*}
+
+Moments of Inertia:
+\begin{align*}
+    I_x &= \int_C (y^2 + z^2) \delta \; ds\\
+    I_y &= \int_C (x^2 + z^2) \delta \; ds\\
+    I_z &= \int_C (x^2 + y^2) \delta \; ds\\
+    I_L &= \int_C r^2 \delta \; ds 
+\end{align*}
+(where $r(x,y,z)$ is the distance from the point (x,y,z) to line L)
+
+
+\emph{Line integrals of vector fields:}
+If $\vec{F}$ is a vector field with continuous components defined along a smooth curve C parametrized by $\vec{r}(t)$, then the line integral of F along C is 
+\[\int_C \vec{F} \cdot \vec{T} \; ds = \int_C \left(\vec{F} \cdot \frac{d\vec{r}}{ds}\right) \; ds = \int_C \vec{F} \cdot d\vec{r}\]
+
+How to evaluate the line integral of $\vec{F} = M \hat{i} + N \hat{j} + P \hat{k}$ along $C: \; \vec{r}(t) = g(t) \hat{i} + h(t) \hat{j} + k(t) \hat{k}$
+\begin{enumerate}
+    \item Express $\vec{F}$ along the curve as $\vec{F}(\vec{r}(t))$ by substituting the components of $\vec{r}$ into M, N, and P
+    \item Find $d\vec{r} / dt$ 
+    \item Evaluate
+    \[\int_C \vec{F} \cdot d\vec{r} = \int_a^b \vec{F}(\vec{r}(t)) \cdot \frac{d\vec{r}}{dt} dt\]
+\end{enumerate}
+
+Example: Evaluate where $\vec{F}(x,y,z) = xy\hat{i} + x^2z\hat{j} + xyz \hat{k}$ along $y=x^2$ from (0,0,0) to (1,1,0) followed by the straight-line segment from (1,1,0) to (1,1,1).
+
+Solution:
+\begin{align*}
+    C_1: \vec{r}_1(t) &= t\hat{i} + t^2 \hat{j}, \quad 0 \leq t\leq 1\\
+    \vec{r}_1'(t) &= \hat{i} + 2t \hat{j}\\
+    C_2: \vec{r}_2(t) &= \hat{i} + \hat{j} + t\hat{k}, \quad 0 \leq t\leq 1\\
+    \vec{r}_2'(t) &= \hat{k}\\
+    \int_0^1 \langle t^3, 0,0\rangle \cdot \langle 1, 2t, 0 \rangle dt &+ \int_0^1 \langle 1, t, t\rangle \cdot \langle 0, 0,1\rangle dt \\
+    &= \int_0^1 t^3 \; dt + \int_0^1 t \; dt = \frac{3}{4}
+\end{align*}
+
+The expression $\int_C M \; dx + N \; dy + P \; dz$ means 
+\[\int_C M(x,y,z) \; dx + \int_C N(x,y,z) \; dy + \int_C P(x,y,z) \; dz\]
+where 
+\begin{align*}
+    \int_C M(x,y,z) \; dx &= \int_a^b M(g(t), h(t), k(t)) \, g'(t) \; dt\\
+    \int_C N(x,y,z) \; dy &= \int_a^b N(g(t), h(t), k(t)) \, h'(t) \; dt\\
+    \int_C P(x,y,z) \; dz &= \int_a^b P(g(t), h(t), k(t)) \, k'(t) \; dt
+\end{align*}
+
+\emph{Work done by force moving an object:}
+Let C be a smooth curve parameterized by $\vec{r}$ and let $\vec{F}$ be a continuous force field over a region containing C. Then the work from point $A=\vec{r}(a)$ to $B=\vec{r}(t)$ along C is 
+\[W= \int_C \vec{F} \cdot \vec{T} \; ds = \int_a^b \vec{F}(\vec{r}(t)) \cdot \frac{d\vec{r}}{dt} \; dt\]
+
+\emph{Flow integral:}
+\[\text{Flow} = \int_C \vec{F} \cdot \vec{T} \; ds\]
+If the curve starts and ends at the same point, the flow is called the circulation around the curve. 
+
+\emph{Flux:}
+If C is a smooth simple closed curve in the domain of a continuous vector field $\vec{F} = M(x,y) \hat{i} + N(x,y) \hat{j}$ in the plane, and if $\vec{n}$ is the outward-pointing unit normal vector on  C, the flux of $\vec{F}$ across C is 
+\[\text{Flux of F across C} = \int_C \vec{F} \cdot \vec{n} \; ds\]
+
+Flux of $\vec{F} = M\hat{i} + N\hat{j}$ can also be calculated 
+\[C = \oint M \; dy - N \; dx\]
+from any smooth parametrization $x=g(t), y=h(t), a\leq t\leq b$ that traces C counterclockwise exactly once. 
+
+Example: find the circulation and flux of the field $\vec{F} = -y\hat{i} + x \hat{j}$ around and across the closed semicircular path with $\vec{r}_1(t) = 2\cos t \hat{i} + 2\sin t \hat{j}, 0\leq t \leq \pi$ and $\vec{r}_2(t) = t\hat{i}, -2\leq t \leq 2$
+\begin{align*}
+    \vec{r}_1' (t) &= -2 \sin t \hat{i} + 2\cos{t} \hat{j}\\
+    \vec{r}_2 (t) &- \hat{i} 
+\end{align*}
+Flow: 
+\begin{align*}
+    &\int_0^\pi \langle -2\sin t, 2\cos t\rangle \cdot \langle -2 \sin t, 2\cos t\rangle \; dt\\
+    &= \int_0^\pi 4\sin^2 t + 4 \cos^2 t \; dt = 4\pi\\
+    &\int_{-2}^2 \langle 0, 1 \rangle \cdot \langle 1, 0 \rangle \; dt = \int_{-2}^2 0 \; dt = 0
+\end{align*}
+so the total flow is $4\pi$
+
+Flux: 
+\begin{align*}
+    \int_0^\pi (-4 \sin t\cos t) - (-4\cos t \sin t) \; dt &= 0\\
+    \int_{-2}^2 0 - t \; dt = -\frac{t^2}{2} \big|_{-2}^2 = 0 
+\end{align*}
+so flux is 0. 
+
+\emph{Conservative field:} a vector field in an open region D in space for which the integral $\int_C \vec{F} \cdot d\vec{r}$ is path independent in D (the line integral along a path C from A to B in D is the same over all paths from A to B)
+
+\emph{Potential function:} if the vector field $\vec{F} = \nabla f$ for some function f on D
+
+For a vector field whose components are continuous throughout an open connection region in space, \textbf{$\vec{F}$ is conservative iff $\vec{F}$ is a gradient field $\nabla f$ for a differentiable function f.}
+
+\emph{Component test for conservative fields:} 
+$\vec{F} = M(x,y,z)\hat{i} + N(x,y,z) \hat{j} + P(x,y,z)\hat{k}$ is conservative if and only if
+\[\frac{\partial P}{\partial y} = \frac{\partial N}{\partial z}, \quad \frac{\partial M}{\partial z} = \frac{\partial P}{\partial x}, \quad \frac{\partial N}{\partial x} = \frac{\partial M}{\partial y}\] 
+
+Example: Which of the fields are conservative?
+\begin{itemize}
+    \item $\vec{F} = y\hat{i} + (x+z) \hat{j} - y\hat{k}$
+    \item $\vec{F} = (yz) \hat{i} + (xz) \hat{j} + (xy) \hat{k}$
+    \item $\vec{F} = (y\sin z) \hat{i} + (x\sin z) \hat{j} + (xy\cos z) \hat{k}$
+\end{itemize}
+
+Solution:
+\begin{itemize}
+    \item $\frac{\partial P}{\partial y} = -1, \quad \frac{\partial N}{\partial z} = 1 \therefore$ not conservative
+    \item $\frac{\partial P}{\partial y} = x = \frac{\partial N}{\partial z}, \quad \frac{\partial M}{\partial z} = y = \frac{\partial P}{\partial x}, \quad \frac{\partial N}{\partial x} = z = \frac{\partial M}{\partial y} \therefore$ is conservative
+    \item $\frac{\partial P}{\partial y} = x\cos z = \frac{\partial N}{\partial z}, \quad \frac{\partial M}{\partial z} = y\cos z = \frac{\partial P}{\partial x}, \quad \frac{\partial N}{\partial x} = \sin z = \frac{\partial M}{\partial y} \therefore$ is conservative
+\end{itemize}
+
+Example: Find a potential function f for $\vec{F} = (y\sin z) \hat{i} + (x\sin z) \hat{j} + (xy\cos z) \hat{k}$
+\[ \frac{\partial f}{\partial x} = y\sin z\]
+\[\int y \sin z \; dx = xy \sin z + g(y,z) = f\]
+\begin{align*}
+    \frac{\partial f}{\partial y} &= x\sin z + \frac{\partial g}{\partial y} = x \sin z \implies \frac{\partial g}{\partial y} = 0\\
+    \frac{\partial f}{\partial z} &= xy\cos z + \frac{\partial g}{\partial z} = xy \cos z \implies \frac{\partial g}{\partial z} = 0
+\end{align*}
+Therefore
+\[f(x,y,z) = xy \sin z + C\]
+
+\emph{Fundamental theorem of line integrals:} For a continuous gradient vector $\vec{F} = \nabla f$ on a domain D containing C and a curve C parametrized by $\vec{r}(t)$,
+\[\int_C \vec{F} \cdot d\vec{r} = f(B) - f(A)\]
+
+\emph{Loop property of conservative fields:} The following statements are equivalent:
+\begin{enumerate}
+    \item $\oint_C \vec{F} \cdot d\vec{r} = 0$ around every loop (closed curve C) in D
+    \item The field $\vec{F}$ is conservative on D
+\end{enumerate}
+
+The symbol $\oint$ indicates a closed simple loop (a curve that starts and ends at the same place)
+
+Example: for $\vec{F} = \nabla f$ and $f(x,y,z) = \frac{2x}{y^2 + z^2 +1}$, finf $\int_C \vec{F} \cdot d\vec{r}$ from (1,2,-1) to (2,3,0).
+
+Solution:
+\begin{align*}
+    \int_C \vec{F} \cdot d\vec{r} &= f(2,3,0) - f(1,2,-1) = \frac{4}{10} - \frac{2}{6} = \frac{1}{15}
+\end{align*}
+
+\emph{Exact:} a differential form ($(x,y,z) dx + N(x,y,z) dy + P(x,y,z)dz$) if, for some scalar function f throughout D,
+\[M \, dx + N \, dy + P\, dz = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy + \frac{\partial f}{\partial z} dz = df\]
+
+\emph{Component Test for exactness:}
+The differential form $M \, dx + N \, dy + P\, dz$ is exact on an open simply connected domain iff 
+\[\frac{\partial P}{\partial y} =  \frac{\partial N}{\partial z}, \quad \frac{\partial M}{\partial z} = \frac{\partial P}{\partial x}, \quad \frac{\partial N}{\partial x} = \frac{\partial M}{\partial y} \] 
+which is equivalent to saying $\vec{F} = M\hat{i} + N\hat{J} + P\hat{k}$ is conservative
 %%% ------------------------------------------------------------------------------------- %%%
 \subsection{WEEK 12: Green's theorem and surfaces (Readings 16.4-16.6)}
 
+\emph{Spin around an axis}
+Suppose that $\vec{F}(x,y)  = M(x,y) \hat{i} + N(x,y) \hat{j}$ is the velocity field of a fluid and that the first partials of M and N are continuous on R. Let (x,y) be a point in R and A a small rectangle with one corner at (x,y) that lies entirely in R. 
+
+\emph{Circulation rate:} roughly the rate at which a paddle wheel with axis perpendicular to the pkae spins at a point in the flood; how fast the fluid is circulating
+
+The circulation rate of $\vec{F}$ around the boundary of A is the sum of flow rates along the sides in the tangential direction.
+\begin{itemize}
+    \item Top: $\quad \quad \vec{F}(x,y + \Delta y) \cdot (-\hat{i}) \Delta x = - M(x, y + \Delta y) \Delta x$
+    \item Bottom: $\quad \quad \vec{F}(x,y) \cdot \hat{i} \Delta x = M(x, y) \Delta x$
+    \item Right: $\quad \quad \vec{F}(x + \Delta x,y) \cdot \hat{j} \Delta y = N(x + \Delta x, y) \Delta y$
+    \item Left: $\quad \quad \vec{F}(x,y) \cdot (-\hat{j}) \Delta y = - N(x, y) \Delta x$
+\end{itemize}
+
+We sum opposite pairs to get 
+\begin{itemize}
+    \item Top and bottom: $\quad \quad \approx -\left(\frac{\partial M}{\partial y} \Delta y\right) \Delta x$
+    \item Right and left: $\quad \quad \approx -\left(\frac{\partial N}{\partial x} \Delta x\right) \Delta y$
+\end{itemize}
+
+Thus, 
+\emph{Circulation density of a vector field $\vec{F}= M \hat{i} + N \hat{j}$ at (x,y)}: the k-component of curl (curl $\vec{F} \cdot \hat{k}$)
+\[\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}\]
+
+Looking down onto the xy-plane, a field spins counterclockwise when the k-component of curl is positive and clockwise when it is negative.
+
+\emph{Divergence (flux density):}
+\[\text{div} \vec{F} = \frac{\partial M}{\partial x} + \frac{\partial N}{\partial y}\]
+
+\emph{Green's Theorem (circulation-curl or tangential form):} The work around a loop
+
+Let C be a piecewise smooth, simple closed curve enclosing a region R. Let $\vec{F} = M \hat{i} + N\hat{j}$ be a vector field with M and N having continuous first partials on the opne region R. Then the counterclockwise circulation of $\vec{F}$ around C equals the double integral of the k-component of curl over R.
+\[\oint_C \vec{F} \cdot \vec{T} \; ds = \oint_C M \; dx + N \; dy = \int \int_R \left(\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}\right)\; dx\, dy\]
+
+\emph{Green's theorem flux-divergence or Normal form:}
+The outward flux across C equals the double integral of div $\vec{F}$ over the region R
+\[\oint_C \vec{F} \cdot \vec{n}\; ds = \oint_C M \; dy - N \; dx = \int \int_R \left(\frac{\partial M}{\partial x} + \frac{\partial N}{\partial y} \right) \; dx\, dy\]
+
+Example: Find the counterclockwise circulation and outward flux of $\vec{F} = \langle x^2 + 4y, x + y^2 \rangle$ over $0\leq x\leq 1, 0\leq y\leq 1$
+
+Solution:
+Counterclockwise circulation:
+\[\int_0^1 \int_0^1 (1 - 4) \; dx \, dy = -3\int_0^1 \int_0^1 \; dx\, dy = -3\]
+
+Outward flux:
+\[\int_0^1 \int_0^1 (2x + 2y) \; dx\, dy = \int_0^1 \left[x^2 + 2xy\right]_)^1 \; dy = \int_0^1 (1 + 2y) \; dy = \left[y + y^2\right] = 2\]
+
+\emph{Green's theorem for Area:}
+\[A_R = \frac{1}{2} \oint x\; dy - y \; dx\]
+
+Example: Find a formula for the area of an ellipse $\vec{r}(t) = a\cos t \hat{i} + b \sin t \hat{j}, 0\leq t\leq 2\pi$
+
+Solution:
+\[\frac{1}{2}\int_0^{2\pi} (ab \cos^2 t + ab \sin^2 t)\; dt = \frac{1}{2} \int_)^{2\pi} ab \; dt = ab\pi\]
+
+\subsubsection{Parameterising Surfaces}
+Some common surfaces:
+\begin{itemize}
+    \item Sphere $x^2 + y^2 + z^2 = a^2$
+    \[\vec{r}(\phi, \theta) = a\sin\phi \cos \theta \hat{i} + a\sin \phi \sin \theta \hat{j}+ a\cos \phi \hat{k}, \quad (0 \leq \phi \leq \pi, 0 \leqq \theta \leq 2\pi)\]
+    \item Cylinder: $x^2 + y^2 = a^2, 0 \leq z \leq b$
+    \[\vec{r}(\theta, z) = a\cos \theta \hat{i} + a\sin \theta \hat{j} + z\hat{k}, \quad (0\leq \theta \leq 2\pi, 0 \leq z \leq b)\]
+    \item Cone: $z=\sqrt{x^2 + y^2}, 0 \leq z \leq b$
+    \[\vec{r}(r, \theta) = r\cos 
+    \theta \hat{i} + r\sin \theta \hat{j} + r\hat{k}, \quad (0\leq \theta \leq 2\pi, 0 \leq r \leq b)\]
+\end{itemize}
+
+\emph{Smooth surface:} a parameterized surface if $\vec{r}_u$ and $\vec{r}_v$ are continuous and $\vec{r}_u \times \vec{r}_v$ is never zero on the interior of the parameter domain
+
+\emph{Area of a smooth surface:}
+The area of $\vec{r}(u, v) - f(u,v) \hat{i} + g(u, v) \hat{j} + h(u, v) \hat{k}, \quad a\leq u \leq b, c\leq v\leq d)$ is 
+\[A =\int \int |\vec{r}_u \times \vec{r}_v| dA = \int_c^d \int_a^b |\vec{r}_u \times \vec{r}_v|\l du\, dv\]
+
+\emph{Surface area differential:}
+\[d\sigma =  |\vec{r}_u \times \vec{r}_v|\l du\, dv \implies \int \int_S d\sigma\]
+
+Example: area of a surface formed by $y + 2z = 2$ inside $x^2 + y^2 = 9$
+\[\vec{r}(u, v) = u \hat{i} + v\hat{j} + (1 - \frac{v}{2})\hat{k}, 0 \leq u^2 + v^2 \leq 9\]
+\[\vec{r}_u = \hat{i}, \vec{r}_v = \hat{j} - \frac{1}{2}\hat{k}\]
+
+\[||\vec{r}_u \times \vec{r}_v|| = \sqrt{1/4 + 1} = \sqrt{5}/2\]
+\[A= \int \int_R \frac{\sqrt{5}}{2} dA = \frac{\sqrt{5}}{2} (9 \pi) = \]
+
+\emph{Formula for the surface area of an implicit surface:}
+\[A = \int \int_R \frac{||\nabla F||}{|\nabla F \cdot \vec{\hat{p}}}\]
+where $hat{p} = \hat{i}, \hat{j}, \text{ or } \hat{k}$ is normal to R and $\nabla F \cdot \hat{p} \neq 0$
+
+Example: Find area of region cut by $x + 2y + 2z = 5$ and the cylinder whose sides are $x = y^2, x = 2-y^2$
+\begin{align*}
+    \nabla F(x,y,z) &= \hat{i} + 2\hat{j} + 2\hat{k}\\
+    ||\nabla F|| &= 3\\
+    \nabla F \cdot \hat{k} &= 2\\
+    \int \int_R \frac{3}{2} dA = \int_{-1}^1 \int_{y^2}^{2-y^2} \frac{3}{2} \; dx\, dy = 4
+\end{align*}
+
+\emph{Formula for the surface area of a graph:} For a graph $z= f(x,y)$ over a region R, 
+\[A = \int \int_R \sqrt{f_x^2 + f_y^2 + 1} \; dx\, dy\]
+
+\subsubsection{Surface integrals}
+\[d\sigma = |\vec{r}_u \times \vec{r}_v| \; du\, dv\]
+
+\emph{Surface integral:}
+\[\int \int_S G(x,y,z) d\sigma = \lim_{n\to \infty} \sum_{k=1}^n G(x_k, y_k, z_k) \Delta \sigma_k\]
+
+Formulas for the surface integral of a scalar function:
+\begin{enumerate}
+    \item For a smooth surface S defined $\vec{r}(u,v) = f(u,v) \hat{i} + g(u,v) \hat{j} + h(u,v) \hat{k}, \quad (u,v) \in R$ and a continuous function $G(x,y,z)$ on S,
+    \[\int \int_S G(x,y,z) \; d\sigma = \int \int_R G(f(u,v), g(u,v), h(u,v)) |\vec{r}_u \times \vec{r}_v| \; du\, dv\]
+    \item For a surface given implicitly ($F(x,y,z) = c$), where F is continuously differentiable and S lies above its closed and bounded shadow region R, 
+    \[\int \int_S G(x,y,z) \; d\sigma = \int \int_R G(x,y,z) \frac{|\nabla F|}{|\nabla F \cdot \hat{p}|} dA\]
+    where $\hat{p}$ is a unit vector normal to R
+    \item For a surface given explicitly ($z = f(x,y)$) where f is continuously differentiable over R, 
+    \[\int \int_S G(x,y,z) d\sigma = \int \int_R G(x,y, f(x,y)) \sqrt{f_x^2 + f_y^2 + 1} \; dx \, dy\]
+\end{enumerate}
+
+Example: Evaluate $\int \int_S 2xy d\sigma$ over $x + 2y + 2zz =4$ in the first octant
+
+Solution: 
+\begin{align*}
+    f(x,y) &= 2 - y - \frac{1}{2}x\\
+    f_x &= -1/2\\
+    f_y &= -1\\
+    \int \int_S 2xy\sqrt{1/4 + 1 + 1} \; dx \, dy &= \int_0^2 \int_0^{4-2y} 3xy \; dx\, dy = 8
+\end{align*}
+
+\emph{Flux:} 
+\[\int \int_S \vec{F} \cdot \vec{n} \; d\sigma\]
+where $\vec{F}$ is a 3d vector field with continuous components over S having a chosen field of normal unit vectors $\vec{n}$ orienting S.
+
+If the surface integral is $g(x,y,z) = c$ then 
+\[\vec{n} = \pm \frac{\nabla g}{||\nabla g||}\]
+
+If the surface is parametrised $\vec{r}(u,v)$, then the integral is 
+\[\int \int_S \vec{F} \cdot (\vec{r}_u \times \vec{r}_v) \; du\, dv\]
+
+Example: find the flux for $\vec{F} = -x \hat{i} - y\hat{j} +z^2 \hat{k}$ outward through the portion of the cone $z = \sqrt{x^2 + y^2}, 1 \leq z \leq 2$
+
+Solution:
+\begin{align*}
+    \vec{r}(u,v) &= v\cos u \hat{i} + v \sin u \hat{j} + v \hat{k} \\
+    \vec{r}_u &= - v\sin u \hat{i} + v\cos u \hat{j}\\
+    \vec{r}_v &= \cos u \hat{i} + \sin u \hat{j} + \hat{k}\\
+    \vec{r}_u \times \vec{r}_v &= v\cos u \hat{i} + v\sin u \hat{j} - v\hat{k}\\
+    \int \int_S \vec{F} \cdot (\vec{r}_u \times \vec{r}_v) \; du \, dv &= \int \int (-v^2 \cos^2 u- v^2 \sin^2 u - v^3)\; du\, dv \\
+    &= \int_0^{2\pi} \int_0^1 (-v^2 - v^3) \; dv \, du = -\frac{73}{6}\pi
+\end{align*}
+
+Mass and moment for thin shells:
+\begin{itemize}
+    \item Mass: $M = \int \int_S \delta \; d\sigma$
+    \item First moment about x: $M_{yz} = \int \int_S x\delta \; d\sigma$
+    \item First moment about y: $M_{xz} = \int \int_S y\delta \; d\sigma $
+    \item First moment about z: $M_{xy} = \int \int_S z\delta \; d\sigma $
+    \item Coordinates of center of mass: $(\bar{x}, \bar{y}, \bar{z}) = \left(\frac{M_{yz}}{M}, \frac{M_{xz}}{M}, \frac{M_{xy}}{M}\right)$
+    \item Moment of inertia about x: $\int \int_S (y^2 + z^2) \delta \; d\sigma$
+    \item Moment of inertia about y: $\int \int_S (x^2 + z^2) \delta \; d\sigma$
+    \item Moment of inertia about z: $\int \int_S (x^2 + y^2) \delta \; d\sigma$
+    \item Moment of inertia about a line L at distance r from point (x,y,z): $\int \int_S r^2 \delta \; d\sigma$
+\end{itemize}
 %%% ------------------------------------------------------------------------------------- %%%
 \subsection{WEEK 13: Stokes' and Divergence theorems (Readings 16.7-16.8)}
+\emph{The del operator:}
+\[\nabla = \imath \frac{\partial}{\partial x} + \jmath \frac{\partial}{\partial y} + \hat{k} \frac{\partial}{\partial z}\]
+
+\emph{Divergence:}
+\[\text{div }\vec{F} = \nabla \cdot \vec{F}\]
+
+\emph{Curl:}
+\[\text{curl }\vec{F} = \nabla \times \vec{F}\]
+
+Example: Find the div and curl for $\vec{F} = (x^2 - yx) \imath + ye^x \jmath + (xy+z) \hat{k}$
+
+Solution:
+\[\text{div} = \nabla \cdot \vec{F} = \frac{\partial}{\partial x}(x^2 - yz) + \frac{\partial}{\partial y} (ye^x) + \frac{\partial}{\partial z} = 2x + e^x +1\]
+\[\text{curl } = \nabla \times \vec{F} = \begin{vmatrix}
+    \imath & \jmath & \hat{k}\\
+    \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+    x^2 - yz & ye^x  xy + z
+\end{vmatrix}\ = x\imath - 2y\jmath + (ye^x + z)\hat{k}\]
+
+Important Identity:
+\[\mathbf{\text{curl grad } f = \vec{0}, \quad \nabla \times \nabla f = \vec{0}}\]
+
+\emph{Stokes' theorem:} Let S be a piecewise smooth oriented surface with a piecewise smooth boundary curve C. If $\vec{F} = M \imath + N \jmath + P \hat{k}$ is a differentiable vector field, then 
+\[\oint \vec{F} \cdot d\vec{r} = \int \int_S (\nabla \times \vec{F}) \cdot \vec{n} \; d\sigma)\]
+
+Example: calculate the circulation of $\vec{F} = y\imath + xz\jmath + x^2 \hat{k}$ where C is the triangle cut by $x+y+z=1$ in the first octant, counterclockwise when viewed from above
+
+\begin{align*}
+    \nabla \times \vec{F} &- -x\imath -2x\jmath + (z-1) \hat{k}\\
+    \vec{n} &= \frac{\imath + \jmath + \hat{k}}{\sqrt{3}}\\ 
+    (\nabla \times \vec{F}) \cdot \vec{n} = -\frac{3x}{\sqrt{3}} + \frac{z - 1}{\sqrt{3}}\\
+    d\sigma &= \sqrt{(-1)^2 _ (-1)^2 + 1} &= \sqrt{3} \; dx\, dy\\
+    \implies \int \int(-3x + z - 1)\; dx\, dy &= \int_0^1 \int_0^1 (-4x-y) \; dy\, dx =  -\frac{5}{6}
+\end{align*}
 \end{document}
