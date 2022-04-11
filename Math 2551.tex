@@ -1560,7 +1560,7 @@ Solution:
 where $\vec{F}$ is a 3d vector field with continuous components over S having a chosen field of normal unit vectors $\vec{n}$ orienting S.
 
 If the surface integral is $g(x,y,z) = c$ then 
-\[\vec{n} = \pm \frac{\nabla g}{||\nabla g||}\]
+\[\vec{n} = \pm \frac{\nabla g}{||\nabla g||} = \frac{\vec{r}_u \times \vec{r}_v}{||\vec{r}_u \times \vec{r}_v||}\]
 
 If the surface is parametrised $\vec{r}(u,v)$, then the integral is 
 \[\int \int_S \vec{F} \cdot (\vec{r}_u \times \vec{r}_v) \; du\, dv\]
@@ -1625,4 +1625,56 @@ Example: calculate the circulation of $\vec{F} = y\imath + xz\jmath + x^2 \hat{k
     d\sigma &= \sqrt{(-1)^2 _ (-1)^2 + 1} &= \sqrt{3} \; dx\, dy\\
     \implies \int \int(-3x + z - 1)\; dx\, dy &= \int_0^1 \int_0^1 (-4x-y) \; dy\, dx =  -\frac{5}{6}
 \end{align*}
-\end{document}
+
+\emph{Closed loop property:} If $\nabla \times \vec{F} = \vec{0}$ at every point of a simply connected open region D in space, then on any piecewise-smooth closed path C in D, 
+\[\oint_C \vec{F} \cdot d\vec{r} = 0\]
+
+\emph{Divergence:} 
+\[\text{div } \vec{F} = \nabla \cdot \vec{F} = \frac{\partial M}{\partial x} + \frac{\partial N}{\partial y} \frac{\partial P}{\partial z}\]
+
+\emph{Divergence theorem:} For F a vector field with continuous first partials and S a piecewise smooth ortiented closed surface,
+\[\int \int_S \vec{F} \cdot \vec{n} \; d\sigma = \int \int \int_D \nabla \cdot \vec{F} \; dV\]
+
+\emph{Corollary to the divergence theorem:} the outward flux across a surface S is zero for any vector field having zero divergence at every point of the region 
+
+If $\vec{F} = M\imath + N \jmath + P \hat{k}$ is a vector field with continuous second partials, 
+\[\text{div (curl } \vec{F}) = \nabla \cdot (\nabla \times \vec{F}) = 0\]
+
+Example: calculate the outward flux of $\vec{F} = x^2 \imath + y^2 \jmath + z^2 \hat{k}$ across the cube in the first octant created by $x=1, y=1, z=1$
+
+Solution:
+\begin{align*}
+    \nabla \cdot \vec{F} &= 2x + 2y + 2z\\
+    \int_0^1 \int_0^1 \int_0^1 (2x + 2y + 2z) \; dx\, dy\, dz &= 3
+\end{align*}
+
+Example 2: Calculate the outward flux of $\vec{F} = (5x^2 + 12xy^2) \imath + (y^3 + e^y \sin z) \jmath + (5z^2 + e^y \cos z) \hat{k}$ across the region bounded by $x^2 + y^2 + z^2 =1$ and $x^2 + y^2 + z^2 = 2$
+
+Solution:
+\begin{align*}
+    \nabla \cdot \vec{F} = 15x^2 + 15y^2 + 15z^2\\
+    \int \int \int 15(x^2 + y^2 + z^2)\; dV &= \int \int \int 15 \rho^2 \; dV\\
+    \implies \int_0^{2\pi} \int_0^{\pi} \int_1^{\sqrt{2}} 15 \rho^4 \sin \phi \; d\rho \, d\phi \, d\theta &= (48\sqrt{2} - 12) \pi 
+\end{align*}
+
+\emph{General Green's Theorem:}
+\begin{enumerate}
+    \item Tangential form:
+    \[\oint_C \vec{F} \cdot \vec{T} \; ds = \int \int_R (\nabla \times \vec{F}) \cdot \hat{k} \; dA\]
+    \item Stokes' Theorem:
+    \[\oint_C \vec{F} \cdot \vec{T} \; ds = \int \int_S (\nabla \times \vec{F}) \cdot \vec{n} \; d\sigma\]
+    \item Normal form:
+    \[\oint_C \vec{F} \cdot \vec{n} \; ds = \int \int_R \nabla \cdot \vec{F} \; dA\]
+    \item Divergence Theorem:
+    \[\int \int_S \vec{F} \cdot \vec{n} \; d\sigma = \int \int \int_D \nabla \cdot \vec{F} \; dV\]
+\end{enumerate}
+
+\emph{\textbf{Unifying fundamental theorem of vector integral calculus:}} the integral of a differential operator ($\nabla$) acting on a field over a region equals the sum of the field components appropriate to the operator over the boundary of the region.
+
+Example: Calculate the net outward flux of $\vec{F} = xy \imath + (\sin(xz) + y^2) \jmath + (e^{xy^2} + x) \hat{k}$ over the surface S bounded by $y=0, z=0, z=2-y$ under $z=1-x^2$
+
+\begin{align*}
+    \int_{-1}^1 \int_0^{1-x^2} \int_0^{2-z} \nabla \cdot \vec{F} \; dy\, dz\, dx\\
+    = \int_{-1}^1 \int_0^{1-x^2} \int_0^{2-z} 3y\; dy\, dz\, dx = \frac{184}{35}
+\end{align*}
+\end{document} 
